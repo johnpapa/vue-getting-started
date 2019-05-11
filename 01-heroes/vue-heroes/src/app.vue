@@ -2,9 +2,13 @@
   <div id="app">
     <HeaderBar />
     <div class="section columns">
-      <NavBar />
       <main class="column">
-        <router-view />
+        <div class="content-container">
+          <div class="content-title-group">
+            <h2 class="title">Heroes</h2>
+            <br />We'll start here
+          </div>
+        </div>
       </main>
     </div>
   </div>
@@ -12,7 +16,6 @@
 
 <script>
 import HeaderBar from '@/components/header-bar.vue';
-import NavBar from '@/components/nav-bar.vue';
 
 export default {
   name: 'App',
@@ -21,9 +24,12 @@ export default {
   },
   components: {
     HeaderBar,
-    NavBar,
   },
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+#app {
+  margin: 0;
+}
+</style>

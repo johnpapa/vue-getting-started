@@ -28,5 +28,3 @@ export default {
   name: 'HeaderBarLinks',
 };
 </script>
-
-<style lang="scss"></style>
