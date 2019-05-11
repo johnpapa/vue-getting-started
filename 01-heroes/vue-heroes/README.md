@@ -4,11 +4,12 @@ This project is seen in demos including the Pluralsight course "Vue: Getting Sta
 
 by [John Papa](http://twitter.com/john_papa)
 
-1. Clone this repository
+## Quick Start
+
+1. Change to the folder you wish to use
 
    ```bash
-   git clone https://github.com/johnpapa/vue-getting-started.git
-   cd vue-getting-started
+   cd 01-heroes/vue-heroes
    ```
 
 1. Install the npm packages

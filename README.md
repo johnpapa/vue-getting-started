@@ -9,6 +9,7 @@ by [John Papa](http://twitter.com/john_papa)
 This repository contains several projects. Each project represents a step in the learning experience.
 
 - 01-heroes - This is the starting point for the app
+- TODO
 
 ## Quick Start
 
