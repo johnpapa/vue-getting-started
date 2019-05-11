@@ -24,21 +24,12 @@
       </div>
     </div>
 
-    <Modal
-      class="modal-hero"
-      :message="message"
-      :isOpen="showModal"
-      @handleNo="closeModal"
-      @handleYes="deleteHero"
-    >
-    </Modal>
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
 import ListHeader from '@/components/list-header.vue';
-import Modal from '@/components/modal.vue';
 import HeroDetail from './hero-detail.vue';
 import HeroList from './hero-list.vue';
 
@@ -52,7 +43,6 @@ export default {
       message: '',
       routePath: '/heroes',
       selected: null,
-      showModal: false,
       title: 'Heroes',
     };
   },
@@ -60,7 +50,6 @@ export default {
     ListHeader,
     HeroList,
     HeroDetail,
-    Modal,
   },
   created() {
     this.getHeroesAction();
@@ -77,7 +66,6 @@ export default {
     ]),
     askToDelete(hero) {
       this.heroToDelete = hero;
-      this.showModal = true;
       if (this.heroToDelete.name) {
         this.message = `Would you like to delete ${this.heroToDelete.name}?`;
         captains.log(this.message);
@@ -86,11 +74,7 @@ export default {
     clear() {
       this.selected = null;
     },
-    closeModal() {
-      this.showModal = false;
-    },
     deleteHero() {
-      this.closeModal();
       if (this.heroToDelete) {
         captains.log(`You said you want to delete ${this.heroToDelete.name}`);
         this.deleteHeroAction(this.heroToDelete);

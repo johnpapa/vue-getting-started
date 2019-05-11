@@ -20,12 +20,6 @@ export default new Router({
         import(/* webpackChunkName: "heroes" */ './views/heroes/heroes.vue'),
     },
     {
-      path: '/villains',
-      name: 'villains',
-      component: () =>
-        import(/* webpackChunkName: "villains" */ './views/villains/villains.vue'),
-    },
-    {
       path: '/about',
       name: 'about',
       // route level code-splitting
