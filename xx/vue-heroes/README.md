@@ -9,7 +9,7 @@ by [John Papa](http://twitter.com/john_papa)
 1. Change to the folder you wish to use
 
    ```bash
-   cd xx-heroes/vue-heroes
+   cd xx/vue-heroes
    ```
 
 1) Install the npm packages
