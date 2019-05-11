@@ -3,12 +3,12 @@
     <HeaderBar />
     <div class="section columns">
       <main class="column">
-        <div class="content-container">
-          <div class="content-title-group">
-            <h2 class="title">Heroes</h2>
-            <br />We'll start here
-          </div>
+        <!-- <div class="content-container"> -->
+        <div class="content-title-group">
+          <h2 class="title">Heroes</h2>
+          <div>We'll start here</div>
         </div>
+        <!-- </div> -->
       </main>
     </div>
   </div>
@@ -19,12 +19,7 @@ import HeaderBar from '@/components/header-bar.vue';
 
 export default {
   name: 'App',
-  data() {
-    return {};
-  },
-  components: {
-    HeaderBar,
-  },
+  components: { HeaderBar },
 };
 </script>
 

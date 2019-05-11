@@ -23,11 +23,3 @@
     </button>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'HeaderBarBrand',
-};
-</script>
-
-<style lang="scss"></style>

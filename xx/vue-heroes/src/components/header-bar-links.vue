@@ -22,11 +22,3 @@
     </div>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'HeaderBarLinks',
-};
-</script>
-
-<style lang="scss"></style>
