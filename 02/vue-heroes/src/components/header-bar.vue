@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import HeaderBarBrand from '@/components/header-bar-brand.vue';
-import HeaderBarLinks from '@/components/header-bar-links.vue';
+import HeaderBarBrand from '@/components/header-bar-brand';
+import HeaderBarLinks from '@/components/header-bar-links';
 
 export default {
   name: 'HeaderBar',

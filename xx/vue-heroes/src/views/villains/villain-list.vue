@@ -33,8 +33,8 @@
 </template>
 
 <script>
-import ButtonFooter from '@/components/button-footer.vue';
-import CardContent from '@/components/card-content.vue';
+import ButtonFooter from '@/components/button-footer';
+import CardContent from '@/components/card-content';
 
 const captains = console;
 

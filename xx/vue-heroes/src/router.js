@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import PageNotFound from '@/components/page-not-found.vue';
+import PageNotFound from '@/components/page-not-found';
 
 Vue.use(Router);
 console.log('process.env.BASE_URL');

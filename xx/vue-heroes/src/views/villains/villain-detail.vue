@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import ButtonFooter from '@/components/button-footer.vue';
+import ButtonFooter from '@/components/button-footer';
 
 export default {
   name: 'VillainDetail',

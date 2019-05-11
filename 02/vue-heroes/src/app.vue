@@ -1,21 +1,15 @@
 <template>
   <div id="app">
     <HeaderBar />
-    <div class="section columns">
-      <main class="column">
-        <!-- <div class="content-container"> -->
-        <div class="content-title-group">
-          <h2 class="title">Heroes</h2>
-          <div>We'll start here</div>
-        </div>
-        <!-- </div> -->
-      </main>
+    <div class="section content-title-group">
+      <h2 class="title">Heroes</h2>
+      <div>We'll start here</div>
     </div>
   </div>
 </template>
 
 <script>
-import HeaderBar from '@/components/header-bar.vue';
+import HeaderBar from '@/components/header-bar';
 
 export default {
   name: 'App',
