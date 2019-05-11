@@ -29,9 +29,12 @@ You’ll learn how to bind data to input elements to display data and make your 
 
 ### Data Concepts
 
-- Creating apps
-- Building and Serving apps
-- Vue UI
+- Create a Heroes component
+- Create input elements
+- Create hero model data
+- Property and event bindings
+- Binding data (interpolation, v-model, v-bind, v-text)
+- Handling events (v-on)
 
 ### Data Demo
 
@@ -43,13 +46,10 @@ You’ll learn how to show content that repeats for lists using the v-for direct
 
 ### Displaying Concepts
 
-- Binding data (interpolation, v-model, v-bind, v-text)
-- Handling events (v-on)
 - Conditionals (v-if)
 - Looping and keys (v-for and :key)
 - Hide/Show (v-show)
 - Styling with class and styles
-- Form fields (e.g. inputs)
 
 ### Displaying Demo
 
@@ -57,7 +57,7 @@ The learner will add code to list the people, select them, and then display them
 
 ## 4 - Interacting within a Component
 
-You’ll learn how to use the various features of a component including reactive data, computed properties, watchers, and methods. You’ll also learn how to tap into events at key moments during the component’s lifecycle.
+You’ll learn how to use the various features of a component including reactive data, computed properties, watchers, and methods. You’ll also learn how to tap into events (such as created) at key moments during the component’s lifecycle.
 
 ### Component Concepts
 
