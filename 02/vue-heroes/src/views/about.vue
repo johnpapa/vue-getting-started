@@ -11,8 +11,8 @@
       <h2 class="title">Source Code</h2>
       <ul>
         <li>
-          <a href="https://github.com/johnpapa/getting-started-vue"
-            >github.com/johnpapa/getting-started-vue</a
+          <a href="https://github.com/johnpapa/vue-getting-started"
+            >github.com/johnpapa/vue-getting-started</a
           >
         </li>
       </ul>

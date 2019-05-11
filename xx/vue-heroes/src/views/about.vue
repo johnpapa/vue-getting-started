@@ -7,16 +7,16 @@
         by
         <a href="http://twitter.com/john_papa">John Papa</a>
       </p>
-      <br>
+      <br />
       <h2 class="title">Source Code</h2>
       <ul>
         <li>
-          <a
-            href="https://github.com/johnpapa/getting-started-vue"
-          >github.com/johnpapa/getting-started-vue</a>
+          <a href="https://github.com/johnpapa/vue-getting-started"
+            >github.com/johnpapa/vue-getting-started</a
+          >
         </li>
       </ul>
-      <br>
+      <br />
     </div>
   </div>
 </template>
