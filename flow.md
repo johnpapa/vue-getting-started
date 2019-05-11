@@ -4,6 +4,10 @@ This course gently introduces how to start developing with Vue to create web app
 
 You will learn how to hone your Vue component skills, display data, present lists and inputs, handle user interactions in components, navigate between views, manage data and state, and get started with all of the key tools to make you efficient at developing with Vue.
 
+## 1 - Overview
+
+The learner will get an overview of the Vue: Getting Started course.
+
 ## 2 - Getting Started with Vue
 
 The learner will see what we will learn and build in the demos for this course. We’ll cover the requirements for Vue, how to set up your tools to code with Vue, and what recommended tooling you will need.
@@ -12,10 +16,22 @@ The learner will get the demo app from github and we’ll briefly explore how to
 
 ### Getting Started Concepts
 
+- Script tag
+
+  - https://vuejs.org/v2/guide/installation.html
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
 - Requirements
+  - node/npm
+  - npm install -g @vue/cli
 - Recommended/Key tooling
+  - Browser tools https://github.com/vuejs/vue-devtools#vue-devtools
+  - VS Code
+  - Prettier, Vetur, Vue Snippets, Winter is Coming, Debugger for Chrome
 - Create, build and serve a new app
+  - together
 - Clone the demo app
+  - https://github.com/johnpapa/vue-getting-started
 - Walk through the demo app
 - Resources
 
