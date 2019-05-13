@@ -42,7 +42,7 @@
       <ButtonFooter
         class="card-footer-item"
         label="Cancel"
-        :class="'cancel-button'"
+        :className="'cancel-button'"
         :iconClasses="'fas fa-undo'"
         :item="editingHero"
         @clicked="clear"
