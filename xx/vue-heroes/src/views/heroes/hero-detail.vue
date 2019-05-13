@@ -42,7 +42,7 @@
       <ButtonFooter
         class="card-footer-item"
         label="Cancel"
-        :className="'cancel-button'"
+        :class="'cancel-button'"
         :iconClasses="'fas fa-undo'"
         :item="editingHero"
         @clicked="clear"
@@ -50,7 +50,7 @@
       <ButtonFooter
         class="card-footer-item"
         label="Save"
-        :className="'save-button'"
+        :class="'save-button'"
         :iconClasses="'fas fa-save'"
         :item="editingHero"
         @clicked="saveHero"
