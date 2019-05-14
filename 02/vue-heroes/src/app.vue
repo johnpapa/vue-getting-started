@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HeaderBar />
+    <HeaderBar/>
     <div class="section content-title-group">
       <h2 class="title">Heroes</h2>
       <div>We'll start here</div>
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
-  margin: 0;
+.main-section {
+  padding: 3rem 1.5rem;
 }
 </style>
