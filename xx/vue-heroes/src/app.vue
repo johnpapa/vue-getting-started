@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <HeaderBar />
-    <div class="section columns">
+    <div class="main-section columns">
       <NavBar />
       <main class="column">
         <router-view />
@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
-  margin: 0;
+.main-section {
+  padding: 3rem 1.5rem;
 }
 </style>
