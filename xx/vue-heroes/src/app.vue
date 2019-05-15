@@ -27,7 +27,5 @@ export default {
 </script>
 
 <style lang="scss">
-.main-section {
-  padding: 3rem 1.5rem;
-}
+@import '@/design/index.scss';
 </style>
