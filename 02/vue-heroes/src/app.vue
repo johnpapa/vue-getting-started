@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <HeaderBar />
-    <div class="section content-title-group">
+    <div class="main-section content-title-group">
       <h2 class="title">Heroes</h2>
       <div>We'll start here</div>
     </div>
