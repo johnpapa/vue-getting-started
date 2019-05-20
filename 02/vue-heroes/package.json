@@ -13,7 +13,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.18",
     "@fortawesome/free-solid-svg-icons": "^5.8.2",
     "@fortawesome/vue-fontawesome": "^0.1.6",
-    "bulma": "^0.7.4"
+    "bulma": "^0.7.5"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.7.0",
