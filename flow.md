@@ -6,7 +6,7 @@ You will learn how to hone your Vue component skills, display data, present list
 
 ## 1 - Overview
 
-The learner will get an overview of the Vue: Getting Started course.
+The learner will get an overview of the Vue: Getting Started course.'
 
 ## 2 - Getting Started with Vue
 

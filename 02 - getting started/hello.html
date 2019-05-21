@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <style>
+    .special {
+      background: red;
+    }
+    .highlight {
+      background: yellow;
+    }
+  </style>
+  <body>
+    <div id="app">
+      <input v-model="name" type="text" @keyup.enter="upperCaseIt()" />
+      Hello {{ name }}
+      <button v-on:click="reset()">Reset</button>
+      <button :class="myclass" @click="reset()">R1</button>
+      <button :class="{special: name === 'John'}" @click="reset()">R2</button>
+      <div>
+        <ul>
+          <li
+            v-for="hero in heroes"
+            :key="hero.id"
+            @click="selectedHero=hero"
+            :class="{highlight: selectedHero===hero}"
+          >
+            {{ hero.name }}
+          </li>
+        </ul>
+        <div v-if="selectedHero">You selected {{ selectedHero.name }}</div>
+        <div v-show="selectedHero">You selected a hero</div>
+      </div>
+    </div>
+    <script>
+      let app = new Vue({
+        el: '#app',
+        data() {
+          return {
+            name: 'John',
+            selectedHero: undefined,
+            heroes: [
+              { id: 10, name: 'Ella' },
+              { id: 20, name: 'Madelyn' },
+              { id: 30, name: 'Haley' }
+            ],
+            myclass: 'special'
+          };
+        },
+        methods: {
+          reset() {
+            this.name = 'Madelyn';
+          },
+          upperCaseIt() {
+            this.name = this.name.toUpperCase();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
