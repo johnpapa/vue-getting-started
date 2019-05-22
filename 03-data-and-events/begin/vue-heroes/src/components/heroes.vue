@@ -115,6 +115,7 @@
           </footer>
         </div>
         <div class="notification is-info">
+          <pre>{{ message }}</pre>
         </div>
       </div>
     </div>
