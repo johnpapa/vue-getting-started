@@ -45,8 +45,8 @@ You’ll learn how to bind data to input elements to display data and make your 
 
 ### Data Concepts
 
-- Introduce data binding
-- Run the demo together. Go to the Heroes component & review the input elements
+- Slides - Introduce data binding
+- Run the demo together. Go to the Heroes component & review the input elements & update the header bar links with v-bind:href
 - Create hero model data
 - {{ }} - hero id and name in the title, and the message
 - @click bindings for cancel and save
@@ -55,7 +55,7 @@ You’ll learn how to bind data to input elements to display data and make your 
   - checkbox
   - radio and :style binding
   - select and key modifier
-- Wrap-up
+- Slides - Wrap-up
 
 ### Data Demo
 
