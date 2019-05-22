@@ -17,12 +17,7 @@
               </div>
               <div class="field">
                 <label class="label" for="firstName">first name</label>
-                <input
-                  class="input"
-                  id="firstName"
-                  type="text"
-                  v-model="hero.firstName"
-                />
+                <input class="input" id="firstName" v-model="hero.firstName" />
               </div>
               <div class="field">
                 <label class="label" for="lastName">last name</label>
@@ -38,12 +33,18 @@
                 />
               </div>
               <div class="field">
+                <label class="label">cape color</label>
+                <div
+                  style="width:20px;height:20px;border:1px gray solid"
+                  :style="{ 'background-color': hero.capeColor }"
+                ></div>
+
                 <label class="radio" for="color-red">
                   <input
                     type="radio"
                     id="color-red"
                     value="red"
-                    v-model="hero.color"
+                    v-model="hero.capeColor"
                   />
                   red
                 </label>
@@ -52,7 +53,7 @@
                     type="radio"
                     id="color-blue"
                     value="blue"
-                    v-model="hero.color"
+                    v-model="hero.capeColor"
                   />
                   blue
                 </label>
@@ -61,16 +62,20 @@
                     type="radio"
                     id="color-green"
                     value="green"
-                    v-model="hero.color"
+                    v-model="hero.capeColor"
                   />
                   green
                 </label>
               </div>
-              <div class="field select">
-                <label class="checkbox" for="active">
+              <div class="field">
+                <label for="power">
                   super power
                   <div class="select is-primary">
-                    <select v-model="hero.superPower">
+                    <select
+                      id="power"
+                      v-model="hero.power"
+                      @keyup.esc="clearPower"
+                    >
                       <option disabled value>Please select one</option>
                       <option>Speed</option>
                       <option>Flight</option>
@@ -91,7 +96,6 @@
                   />
                 </label>
               </div>
-              <pre>{{ hero | json }}</pre>
             </div>
           </div>
           <footer class="card-footer">
@@ -127,15 +131,15 @@ export default {
         lastName: 'Papa',
         description: 'the cat whisperer',
         capeColor: '',
-        superPower: '',
+        power: '',
         active: true,
       },
     };
   },
   methods: {
     cancelHero() {},
-    loadHero() {
-      this.hero = this.getHero();
+    clearPower() {
+      this.hero.power = '';
     },
     saveHero() {},
   },
