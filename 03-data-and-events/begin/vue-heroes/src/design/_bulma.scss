@@ -1,0 +1,22 @@
+// @import 'bulma/bulma.sass';
+// Using specific Bulma files reduces the 3 production css files from 195kb to 139kb for a 28% decrease
+@import 'bulma/sass/utilities/_all.sass';
+@import 'bulma/sass/utilities/mixins.sass';
+@import 'bulma/sass/utilities/controls.sass';
+@import 'bulma/sass/base/generic.sass';
+@import 'bulma/sass/base/helpers.sass'; // 277 lines
+@import 'bulma/sass/base/minireset.sass';
+@import 'bulma/sass/layout/footer.sass';
+// @import 'bulma/sass/layout/section.sass'; // 12 lines
+@import 'bulma/sass/components/card.sass';
+// @import 'bulma/sass/components/list.sass'; // 39 lines
+@import 'bulma/sass/components/menu.sass';
+@import 'bulma/sass/components/modal.sass';
+@import 'bulma/sass/components/navbar.sass';
+@import 'bulma/sass/elements/button.sass';
+// @import 'bulma/sass/elements/container.sass'; // 25 lines
+// @import 'bulma/sass/elements/content.sass'; // 150 lines
+// @import 'bulma/sass/elements/title.sass'; // 64 lines
+// @import 'bulma/sass/elements/icon.sass';
+@import 'bulma/sass/form/_all.sass';
+@import 'bulma/sass/grid/columns.sass';
