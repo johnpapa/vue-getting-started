@@ -1,4 +1,4 @@
-# Tour of Heroes
+# Vue Getting Started
 
 This project is seen in demos including the Pluralsight course "Vue: Getting Started" to help represent a fundamental app written with Vue. The heroes and villains theme is used throughout the app.
 
@@ -8,8 +8,7 @@ by [John Papa](http://twitter.com/john_papa)
 
 This repository contains several projects. Each project represents a step in the learning experience.
 
-- 01/vue-heroes - This is the starting point for the app
-- TODO
+- `02-getting-started/end/vue-heroes` - This is the starting point for the app
 
 ## Quick Start
 
@@ -23,7 +22,7 @@ This repository contains several projects. Each project represents a step in the
 1. Change to the folder you wish to use
 
    ```bash
-   cd 01/vue-heroes
+   cd 02-getting-started/end/vue-heroes
    ```
 
 1. Install the npm packages
