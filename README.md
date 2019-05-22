@@ -8,7 +8,7 @@ by [John Papa](http://twitter.com/john_papa)
 
 This repository contains several projects. Each project represents a step in the learning experience.
 
-- `02-getting-started/end/vue-heroes` - This is the starting point for the app
+- `02 - getting-started/end/vue-heroes` - This is the starting point for the app
 
 ## Quick Start
 
@@ -22,7 +22,7 @@ This repository contains several projects. Each project represents a step in the
 1. Change to the folder you wish to use
 
    ```bash
-   cd 02-getting-started/end/vue-heroes
+   cd 02 - getting-started/end/vue-heroes
    ```
 
 1. Install the npm packages
