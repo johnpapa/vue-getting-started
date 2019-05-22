@@ -114,6 +114,9 @@
             </button>
           </footer>
         </div>
+        <div class="notification is-info" v-show="message">
+          <pre>{{ message }}</pre>
+        </div>
       </div>
     </div>
   </div>
@@ -133,14 +136,20 @@ export default {
         power: '',
         active: true,
       },
+      message: '',
     };
   },
   methods: {
-    cancelHero() {},
+    cancelHero() {
+      this.message = '';
+    },
     clearPower() {
       this.hero.power = '';
     },
-    saveHero() {},
+    saveHero() {
+      // This only updates when you click the save button
+      this.message = JSON.stringify(this.hero, null, '\n ');
+    },
   },
 };
 </script>

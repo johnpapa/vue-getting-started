@@ -34,11 +34,6 @@
               </div>
               <div class="field">
                 <label class="label">cape color</label>
-                <div
-                  style="width:20px;height:20px;border:1px gray solid"
-                  :style="{ 'background-color': hero.capeColor }"
-                ></div>
-
                 <label class="radio" for="color-red">
                   <input
                     type="radio"
@@ -66,6 +61,10 @@
                   />
                   green
                 </label>
+                <div
+                  class="color-line"
+                  :style="{ 'background-color': hero.capeColor }"
+                ></div>
               </div>
               <div class="field">
                 <label for="power">
@@ -115,6 +114,9 @@
             </button>
           </footer>
         </div>
+        <div class="notification is-info" v-show="message">
+          <pre>{{ message }}</pre>
+        </div>
       </div>
     </div>
   </div>
@@ -134,14 +136,20 @@ export default {
         power: '',
         active: true,
       },
+      message: '',
     };
   },
   methods: {
-    cancelHero() {},
+    cancelHero() {
+      this.message = '';
+    },
     clearPower() {
       this.hero.power = '';
     },
-    saveHero() {},
+    saveHero() {
+      // This only updates when you click the save button
+      this.message = JSON.stringify(this.hero, null, '\n ');
+    },
   },
 };
 </script>

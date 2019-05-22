@@ -6,6 +6,13 @@ html > body {
   padding: 1rem 1rem;
 }
 
+.notification pre {
+  background-color: inherit;
+  color: white;
+  font-size: 16px;
+  line-height: normal;
+}
+
 div.color-line {
   width: 160px;
   height: 8px;
