@@ -27,7 +27,7 @@ The learner will get the demo app from github and we’ll briefly explore how to
 - Recommended/Key tooling
   - Browser tools https://github.com/vuejs/vue-devtools#vue-devtools
   - VS Code
-  - Prettier, Vetur, Vue Snippets, Winter is Coming, Debugger for Chrome
+  - Vetur, Vue Snippets, Winter is Coming
 - Create, build and serve a new app
   - together
 - Clone the demo app
@@ -45,12 +45,17 @@ You’ll learn how to bind data to input elements to display data and make your 
 
 ### Data Concepts
 
-- Create a Heroes component
-- Create input elements
+- Introduce data binding
+- Run the demo together. Go to the Heroes component & review the input elements
 - Create hero model data
-- Property and event bindings
-- Binding data (interpolation, v-model, v-bind, v-text)
-- Handling events (v-on)
+- {{ }} - hero id and name in the title, and the message
+- @click bindings for cancel and save
+- Input binding with v-model
+  - textbox and textarea
+  - checkbox
+  - radio and :style binding
+  - select and key modifier
+- Wrap-up
 
 ### Data Demo
 
@@ -66,6 +71,7 @@ You’ll learn how to show content that repeats for lists using the v-for direct
 - Looping and keys (v-for and :key)
 - Hide/Show (v-show)
 - Styling with class and styles
+  - class bindings - show in slides
 
 ### Displaying Demo
 
