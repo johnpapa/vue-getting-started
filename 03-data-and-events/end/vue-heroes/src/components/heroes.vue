@@ -34,6 +34,11 @@
               </div>
               <div class="field">
                 <label class="label">cape color</label>
+                <div
+                  style="width:20px;height:20px;border:1px gray solid"
+                  :style="{ 'background-color': hero.capeColor }"
+                ></div>
+
                 <label class="radio" for="color-red">
                   <input
                     type="radio"
@@ -61,10 +66,6 @@
                   />
                   green
                 </label>
-                <div
-                  class="color-line"
-                  :style="{ 'background-color': hero.capeColor }"
-                ></div>
               </div>
               <div class="field">
                 <label for="power">
