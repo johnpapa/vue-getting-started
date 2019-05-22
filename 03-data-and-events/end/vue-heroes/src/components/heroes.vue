@@ -114,7 +114,7 @@
             </button>
           </footer>
         </div>
-        <div class="notification is-info" v-show="message">
+        <div class="notification is-info">
           <pre>{{ message }}</pre>
         </div>
       </div>
