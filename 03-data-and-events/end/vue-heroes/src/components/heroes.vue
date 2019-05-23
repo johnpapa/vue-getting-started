@@ -73,6 +73,7 @@
                     <select
                       id="power"
                       v-model="hero.power"
+                      :class="{ invalid: !hero.power }"
                       @keyup.esc="clearPower"
                     >
                       <option disabled value>Please select one</option>

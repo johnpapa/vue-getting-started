@@ -47,14 +47,13 @@ You’ll learn how to bind data to input elements to display data and make your 
 
 - Slides - Introduce data binding
 - Run the demo together. Go to the Heroes component & review the input elements & update the header bar links with v-bind:href
-- Create hero model data
-- {{ }} - hero id and name in the title, and the message
+- {{ }} - hero id and name in the title, and the message and and create hero model data
 - @click bindings for cancel and save
 - Input binding with v-model
   - textbox and textarea
   - checkbox
   - radio and :style binding
-  - select and key modifier
+- Select, :class and key modifier
 - Slides - Wrap-up
 
 ### Data Demo

@@ -181,3 +181,9 @@ button.link {
   border: none;
   cursor: pointer;
 }
+
+input.invalid,
+textarea.invalid,
+select.invalid {
+  border-left: 10px red solid !important;
+}
