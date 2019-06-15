@@ -13,7 +13,7 @@
             <a
               class="list-item"
               :class="{ 'is-active': selectedHero === hero }"
-              @click="selectHero(hero)"
+              @click="selectedHero = hero"
             >
               <span>{{ hero.firstName }}</span>
             </a>
@@ -43,6 +43,17 @@
               />
             </div>
             <div class="field">
+              <label class="checkbox" for="show">
+                show more
+                <input
+                  type="checkbox"
+                  class="is-primary"
+                  id="show"
+                  v-model="showMore"
+                />
+              </label>
+            </div>
+            <div class="field" v-show="showMore">
               <label class="label" for="lastName">last name</label>
               <input
                 class="input"
@@ -50,7 +61,7 @@
                 v-model="selectedHero.lastName"
               />
             </div>
-            <div class="field">
+            <div class="field" v-show="showMore">
               <label class="label" for="description">description</label>
               <input
                 class="input"
@@ -71,6 +82,7 @@ export default {
   data() {
     return {
       selectedHero: undefined,
+      showMore: false,
       heroes: [
         {
           id: 10,
@@ -91,13 +103,7 @@ export default {
           description: 'pen wielder',
         },
       ],
-      message: '',
     };
-  },
-  methods: {
-    selectHero(hero) {
-      this.selectedHero = hero;
-    },
   },
 };
 </script>
