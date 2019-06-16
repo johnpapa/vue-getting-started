@@ -60,10 +60,10 @@ export default {
   data() {
     return {
       selectedHero: {
-        id: 20,
-        firstName: 'Madelyn',
-        lastName: 'Papa',
-        description: 'the cat whisperer',
+        id: 111,
+        firstName: '...',
+        lastName: '...',
+        description: '...',
       },
       heroes: [
         {
