@@ -12,11 +12,10 @@
           <li v-for="hero in heroes" :key="hero.id">
             <a
               class="list-item"
-              :class="{ 'is-active': selectedHero === hero }"
               @click="selectedHero = hero"
+              :class="{ 'is-active': selectedHero === hero }"
+              ><span>{{ hero.firstName }}</span></a
             >
-              <span>{{ hero.firstName }}</span>
-            </a>
           </li>
         </ul>
       </div>
@@ -43,7 +42,7 @@
               />
             </div>
             <div class="field">
-              <label class="checkbox" for="show">
+              <label for="show" class="checkbox">
                 show more
                 <input
                   type="checkbox"
