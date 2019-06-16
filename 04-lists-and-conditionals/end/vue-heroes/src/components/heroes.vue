@@ -102,6 +102,12 @@ export default {
           lastName: 'Papa',
           description: 'pen wielder',
         },
+        {
+          id: 40,
+          firstName: 'Landon',
+          lastName: 'Papa',
+          description: 'arc trooper',
+        },
       ],
     };
   },
