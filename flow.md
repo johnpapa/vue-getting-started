@@ -83,11 +83,11 @@ You’ll learn how to use the various features of a component including reactive
 ### Component Concepts
 
 - Data
+- Methods
+- Tapping into life cycle events
 - Computed properties
 - Watchers
-- Methods
 - Filters
-- Tapping into life cycle events
 
 ### Component Demo
 
