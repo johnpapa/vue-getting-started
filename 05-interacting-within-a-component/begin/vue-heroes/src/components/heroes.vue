@@ -27,7 +27,7 @@
       <div class="column is-3" v-if="selectedHero">
         <div class="card">
           <header class="card-header">
-            <p class="card-header-title">{{ fullName }}</p>
+            <p class="card-header-title">{{ selectedHero.firstName }}</p>
           </header>
           <div class="card-content">
             <div class="content">
@@ -61,30 +61,6 @@
                   v-model="selectedHero.description"
                 />
               </div>
-              <div class="field">
-                <label class="label" for="originDate">originDate</label>
-                <input
-                  type="date"
-                  class="input"
-                  id="originDate"
-                  v-model="selectedHero.originDate"
-                />
-              </div>
-              <div class="field">
-                <label class="label" for="capeCounter">cape counter</label>
-                <input
-                  class="input"
-                  name="capeCounter"
-                  type="number"
-                  v-model="selectedHero.capeCounter"
-                />
-              </div>
-              <div class="field">
-                <label class="label" for="capeMessage">cape message</label>
-                <label class="input" name="capeMessage">{{
-                  capeMessage
-                }}</label>
-              </div>
             </div>
           </div>
           <footer class="card-footer">
@@ -110,82 +86,45 @@
 </template>
 
 <script>
-import { format } from 'date-fns';
-const dateFormat = 'YYYY-MM-DD';
+const ourHeroes = [
+  {
+    id: 10,
+    firstName: 'Ella',
+    lastName: 'Papa',
+    description: 'fashionista',
+  },
+  {
+    id: 20,
+    firstName: 'Madelyn',
+    lastName: 'Papa',
+    description: 'the cat whisperer',
+  },
+  {
+    id: 30,
+    firstName: 'Haley',
+    lastName: 'Papa',
+    description: 'pen wielder',
+  },
+  {
+    id: 40,
+    firstName: 'Landon',
+    lastName: 'Papa',
+    description: 'arc trooper',
+  },
+];
 export default {
   name: 'Heroes',
   data() {
-    // let heroes = [
-    //   {
-    //     id: 10,
-    //     firstName: 'Ella',
-    //     lastName: 'Papa',
-    //     capeCounter: 1,
-    //     description: 'fashionista',
-    //   },
-    // ];
     return {
-      heroes: [], // heroes,
-      selectedHero: undefined, // heroes[0],
-      capeMessage: '',
+      heroes: ourHeroes,
+      selectedHero: undefined,
       message: '',
     };
   },
-  created() {
-    this.loadHeroes();
-  },
-  computed: {
-    fullName() {
-      return `${this.selectedHero.firstName} ${this.selectedHero.lastName}`;
-    },
-  },
-  watch: {
-    'selectedHero.capeCounter': {
-      immediate: true,
-      handler(newValue, oldValue) {
-        console.log(`Watcher evaluated. old=${oldValue}, new=${newValue}`);
-        this.handleTheCapes(newValue);
-      },
-    },
-  },
   methods: {
     async getHeroes() {
-      const heroes = [
-        {
-          id: 10,
-          firstName: 'Ella',
-          lastName: 'Papa',
-          capeCounter: 1,
-          description: 'fashionista',
-          originDate: format(new Date(1996, 5, 1), dateFormat),
-        },
-        {
-          id: 20,
-          firstName: 'Madelyn',
-          lastName: 'Papa',
-          capeCounter: 3,
-          description: 'the cat whisperer',
-          originDate: format(new Date(1998, 7, 1), dateFormat),
-        },
-        {
-          id: 30,
-          firstName: 'Haley',
-          lastName: 'Papa',
-          capeCounter: 2,
-          description: 'pen wielder',
-          originDate: format(new Date(1999, 8, 1), dateFormat),
-        },
-        {
-          id: 40,
-          firstName: 'Landon',
-          lastName: 'Papa',
-          capeCounter: 0,
-          description: 'arc trooper',
-          originDate: format(new Date(2000, 9, 1), dateFormat),
-        },
-      ];
       return new Promise(resolve => {
-        setTimeout(() => resolve(heroes), 1500);
+        setTimeout(() => resolve(ourHeroes), 1500);
       });
     },
     async loadHeroes() {
