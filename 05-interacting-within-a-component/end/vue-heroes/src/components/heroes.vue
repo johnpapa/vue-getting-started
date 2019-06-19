@@ -62,13 +62,17 @@
                 />
               </div>
               <div class="field">
-                <label class="label" for="originDate">originDate</label>
+                <label class="label" for="originDate">origin date</label>
                 <input
                   type="date"
                   class="input"
                   id="originDate"
                   v-model="selectedHero.originDate"
                 />
+                <p class="comment">
+                  My origin story began on
+                  {{ selectedHero.originDate | shortDate }}
+                </p>
               </div>
               <div class="field">
                 <label class="label" for="capeCounter">cape counter</label>
@@ -111,7 +115,35 @@
 
 <script>
 import { format } from 'date-fns';
-const dateFormat = 'YYYY-MM-DD';
+const inputDateFormat = 'YYYY-MM-DD';
+const displayDateFormat = 'MMM DD, YYYY';
+
+const ourHeroes = [
+  {
+    id: 10,
+    firstName: 'Ella',
+    lastName: 'Papa',
+    description: 'fashionista',
+  },
+  {
+    id: 20,
+    firstName: 'Madelyn',
+    lastName: 'Papa',
+    description: 'the cat whisperer',
+  },
+  {
+    id: 30,
+    firstName: 'Haley',
+    lastName: 'Papa',
+    description: 'pen wielder',
+  },
+  {
+    id: 40,
+    firstName: 'Landon',
+    lastName: 'Papa',
+    description: 'arc trooper',
+  },
+];
 export default {
   name: 'Heroes',
   data() {
@@ -125,7 +157,7 @@ export default {
     //   },
     // ];
     return {
-      heroes: [], // heroes,
+      heroes: ourHeroes, // []
       selectedHero: undefined, // heroes[0],
       capeMessage: '',
       message: '',
@@ -148,6 +180,11 @@ export default {
       },
     },
   },
+  filters: {
+    shortDate: function(value) {
+      return format(value, displayDateFormat);
+    },
+  },
   methods: {
     async getHeroes() {
       const heroes = [
@@ -157,7 +194,7 @@ export default {
           lastName: 'Papa',
           capeCounter: 1,
           description: 'fashionista',
-          originDate: format(new Date(1996, 5, 1), dateFormat),
+          originDate: format(new Date(1996, 5, 1), inputDateFormat),
         },
         {
           id: 20,
@@ -165,7 +202,7 @@ export default {
           lastName: 'Papa',
           capeCounter: 3,
           description: 'the cat whisperer',
-          originDate: format(new Date(1998, 7, 1), dateFormat),
+          originDate: format(new Date(1998, 7, 1), inputDateFormat),
         },
         {
           id: 30,
@@ -173,7 +210,7 @@ export default {
           lastName: 'Papa',
           capeCounter: 2,
           description: 'pen wielder',
-          originDate: format(new Date(1999, 8, 1), dateFormat),
+          originDate: format(new Date(1999, 8, 1), inputDateFormat),
         },
         {
           id: 40,
@@ -181,7 +218,7 @@ export default {
           lastName: 'Papa',
           capeCounter: 0,
           description: 'arc trooper',
-          originDate: format(new Date(2000, 9, 1), dateFormat),
+          originDate: format(new Date(2000, 9, 1), inputDateFormat),
         },
       ];
       return new Promise(resolve => {
