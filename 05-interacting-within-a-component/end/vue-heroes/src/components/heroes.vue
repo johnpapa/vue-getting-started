@@ -123,25 +123,33 @@ const ourHeroes = [
     id: 10,
     firstName: 'Ella',
     lastName: 'Papa',
+    capeCounter: 1,
     description: 'fashionista',
+    originDate: format(new Date(1996, 5, 1), inputDateFormat),
   },
   {
     id: 20,
     firstName: 'Madelyn',
     lastName: 'Papa',
+    capeCounter: 3,
     description: 'the cat whisperer',
+    originDate: format(new Date(1998, 7, 1), inputDateFormat),
   },
   {
     id: 30,
     firstName: 'Haley',
     lastName: 'Papa',
+    capeCounter: 2,
     description: 'pen wielder',
+    originDate: format(new Date(1999, 8, 1), inputDateFormat),
   },
   {
     id: 40,
     firstName: 'Landon',
     lastName: 'Papa',
+    capeCounter: 0,
     description: 'arc trooper',
+    originDate: format(new Date(2000, 9, 1), inputDateFormat),
   },
 ];
 export default {
@@ -157,8 +165,8 @@ export default {
     //   },
     // ];
     return {
-      heroes: ourHeroes, // []
-      selectedHero: undefined, // heroes[0],
+      heroes: [],
+      selectedHero: undefined,
       capeMessage: '',
       message: '',
     };
@@ -187,42 +195,8 @@ export default {
   },
   methods: {
     async getHeroes() {
-      const heroes = [
-        {
-          id: 10,
-          firstName: 'Ella',
-          lastName: 'Papa',
-          capeCounter: 1,
-          description: 'fashionista',
-          originDate: format(new Date(1996, 5, 1), inputDateFormat),
-        },
-        {
-          id: 20,
-          firstName: 'Madelyn',
-          lastName: 'Papa',
-          capeCounter: 3,
-          description: 'the cat whisperer',
-          originDate: format(new Date(1998, 7, 1), inputDateFormat),
-        },
-        {
-          id: 30,
-          firstName: 'Haley',
-          lastName: 'Papa',
-          capeCounter: 2,
-          description: 'pen wielder',
-          originDate: format(new Date(1999, 8, 1), inputDateFormat),
-        },
-        {
-          id: 40,
-          firstName: 'Landon',
-          lastName: 'Papa',
-          capeCounter: 0,
-          description: 'arc trooper',
-          originDate: format(new Date(2000, 9, 1), inputDateFormat),
-        },
-      ];
       return new Promise(resolve => {
-        setTimeout(() => resolve(heroes), 1500);
+        setTimeout(() => resolve(ourHeroes), 1500);
       });
     },
     async loadHeroes() {
