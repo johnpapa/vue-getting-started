@@ -124,74 +124,51 @@ const ourHeroes = [
     firstName: 'Ella',
     lastName: 'Papa',
     capeCounter: 1,
-    description: 'fashionista',
     originDate: format(new Date(1996, 5, 1), inputDateFormat),
+    description: 'fashionista',
   },
   {
     id: 20,
     firstName: 'Madelyn',
     lastName: 'Papa',
     capeCounter: 3,
-    description: 'the cat whisperer',
     originDate: format(new Date(1998, 7, 1), inputDateFormat),
+    description: 'the cat whisperer',
   },
   {
     id: 30,
     firstName: 'Haley',
     lastName: 'Papa',
     capeCounter: 2,
-    description: 'pen wielder',
     originDate: format(new Date(1999, 8, 1), inputDateFormat),
+    description: 'pen wielder',
   },
   {
     id: 40,
     firstName: 'Landon',
     lastName: 'Papa',
     capeCounter: 0,
-    description: 'arc trooper',
     originDate: format(new Date(2000, 9, 1), inputDateFormat),
+    description: 'arc trooper',
   },
 ];
 export default {
   name: 'Heroes',
   data() {
-    // let heroes = [
-    //   {
-    //     id: 10,
-    //     firstName: 'Ella',
-    //     lastName: 'Papa',
-    //     capeCounter: 1,
-    //     description: 'fashionista',
-    //   },
-    // ];
     return {
       heroes: [],
       selectedHero: undefined,
-      capeMessage: '',
       message: '',
+      capeMessage: '',
     };
-  },
-  created() {
-    this.loadHeroes();
   },
   computed: {
     fullName() {
       return `${this.selectedHero.firstName} ${this.selectedHero.lastName}`;
     },
   },
-  watch: {
-    'selectedHero.capeCounter': {
-      immediate: true,
-      handler(newValue, oldValue) {
-        console.log(`Watcher evaluated. old=${oldValue}, new=${newValue}`);
-        this.handleTheCapes(newValue);
-      },
-    },
-  },
-  filters: {
-    shortDate: function(value) {
-      return format(value, displayDateFormat);
-    },
+  created() {
+    this.loadHeroes();
   },
   methods: {
     async getHeroes() {
@@ -232,6 +209,20 @@ export default {
     },
     selectHero(hero) {
       this.selectedHero = hero;
+    },
+  },
+  watch: {
+    'selectedHero.capeCounter': {
+      immediate: true,
+      handler(newValue, oldValue) {
+        console.log(`Watcher evalauted. old=${oldValue}, new=${newValue}`);
+        this.handleTheCapes(newValue);
+      },
+    },
+  },
+  filters: {
+    shortDate: function(value) {
+      return format(value, displayDateFormat);
     },
   },
 };
