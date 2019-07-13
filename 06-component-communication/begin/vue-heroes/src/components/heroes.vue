@@ -129,14 +129,18 @@
 </template>
 
 <script>
+// move to data.js
 import { format } from 'date-fns';
 
 import {
   displayDateFormat,
-  inputDateFormat /* , heroWatchers, lifecycleHooks */,
+  inputDateFormat, // move this to data.js
+  /* add these , heroWatchers, lifecycleHooks */
 } from '../shared';
-// import HeroDetail from '@/components/hero-detail';
 
+// import HeroDetail from '@/components/hero-detail'; // Add this
+
+// Move this to shared/data.js
 const ourHeroes = [
   {
     id: 10,
@@ -181,14 +185,18 @@ export default {
       capeMessage: '',
     };
   },
+  // Add components
   // components: {
   //   HeroDetail,
   // },
+  // Add mixins
   // mixins: [lifecycleHooks, heroWatchers],
   created() {
     this.loadHeroes();
-    // this.log(`${this.componentName} created hook called`);
+    // Create this after mixins, then COPY this to hero detail
+    // this.log(`${this.componentName} created hook called`); // Add this
   },
+  // Move computed to HeroDetail
   computed: {
     fullName() {
       return this.selectedHero
@@ -210,26 +218,18 @@ export default {
     },
     cancelHero() {
       this.selectedHero = undefined;
-      this.message = '';
     },
+    // Add hero parameter (instead of using this.selectedHero)
     saveHero() {
-      // this.message = JSON.stringify(this.selectedHero, null, '\n ');
-
       const index = this.heroes.findIndex(h => h.id === this.selectedHero.id);
       this.heroes.splice(index, 1, this.selectedHero);
       this.heroes = [...this.heroes];
-      // this.message = JSON.stringify(hero);
       this.selectedHero = undefined;
     },
     selectHero(hero) {
       this.selectedHero = hero;
     },
-    // cancelHero() {
-    //   this.$emit('cancel');
-    // },
-    // saveHero() {
-    //   this.$emit('save', this.selectedHero);
-    // },
+    // Move handleTheCaps to HeroDetail
     handleTheCapes(newValue) {
       const value = parseInt(newValue, 10);
       switch (value) {
@@ -248,8 +248,9 @@ export default {
       }
     },
   },
+  // Move watcher to HeroDetail, but change it to hero (not selectedHero)
   watch: {
-    'hero.capeCounter': {
+    'selectedHero.capeCounter': {
       immediate: true,
       handler(newValue, oldValue) {
         console.log(`Watcher evalauted. old=${oldValue}, new=${newValue}`);
@@ -257,6 +258,7 @@ export default {
       },
     },
   },
+  // Move filter to HeroDetail
   filters: {
     shortDate: function(value) {
       return format(value, displayDateFormat);

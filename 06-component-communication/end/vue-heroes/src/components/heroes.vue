@@ -76,14 +76,12 @@ export default {
     },
     cancelHero() {
       this.selectedHero = undefined;
-      this.message = '';
     },
     saveHero(hero) {
-      this.selectedHero = undefined;
       const index = this.heroes.findIndex(h => h.id === hero.id);
       this.heroes.splice(index, 1, hero);
       this.heroes = [...this.heroes];
-      this.message = JSON.stringify(hero);
+      this.selectedHero = undefined;
     },
     selectHero(hero) {
       this.selectedHero = hero;
