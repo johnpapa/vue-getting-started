@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 
-const displayTimeFormat = 'HH:mm:ss.SSS';
+import { displayTimeFormat } from './constants';
 
 const hookMessageSuffix = 'hook called (from mixin)';
 
