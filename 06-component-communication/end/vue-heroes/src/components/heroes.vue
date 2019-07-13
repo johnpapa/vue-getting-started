@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import { heroWatchers, lifecycleHooks, ourHeroes } from '../shared';
+import { heroWatchers, lifecycleHooks, ourHeroes, logger } from '../shared';
 import HeroDetail from '@/components/hero-detail';
 
 export default {
@@ -60,7 +60,7 @@ export default {
   mixins: [lifecycleHooks, heroWatchers],
   created() {
     this.loadHeroes();
-    this.log(`${this.componentName} created hook called`);
+    logger.info(`${this.componentName} created hook called`);
   },
   methods: {
     async getHeroes() {
