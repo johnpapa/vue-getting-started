@@ -43,7 +43,7 @@
 <script>
 import { format } from 'date-fns';
 
-import { inputDateFormat, lifecycleHooks, selectedItem } from '../shared';
+import { inputDateFormat, heroWatchers, lifecycleHooks } from '../shared';
 import HeroDetail from '@/components/hero-detail';
 
 const ourHeroes = [
@@ -93,7 +93,7 @@ export default {
   components: {
     HeroDetail,
   },
-  mixins: [lifecycleHooks, selectedItem],
+  mixins: [lifecycleHooks, heroWatchers],
   created() {
     this.loadHeroes();
     this.log(`${this.componentName} created hook called`);

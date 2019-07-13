@@ -33,7 +33,7 @@ export const lifecycleHooks = {
   },
 };
 
-export const selectedItem = {
+export const heroWatchers = {
   watch: {
     selectedHero: {
       immediate: true,

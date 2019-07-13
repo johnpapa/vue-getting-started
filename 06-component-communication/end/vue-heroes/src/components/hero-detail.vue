@@ -100,7 +100,9 @@ export default {
   mixins: [lifecycleHooks],
   computed: {
     fullName() {
-      return `${this.clonedHero.firstName} ${this.clonedHero.lastName}`;
+      return this.clonedHero
+        ? `${this.clonedHero.firstName} ${this.clonedHero.lastName}`
+        : '';
     },
   },
   methods: {
