@@ -1,46 +1,39 @@
-import { format } from 'date-fns';
-
-import { displayTimeFormat } from './constants';
+import { logger } from './logger';
 
 const hookMessageSuffix = 'hook called (from mixin)';
 
 export const lifecycleHooks = {
+  // Computeds
   computed: {
     componentName() {
       return `${this.$options.name} component`;
     },
   },
+  // LifeCycle Hooks
   created() {
-    this.log(`${this.componentName} created ${hookMessageSuffix}`);
-    this.log('component data', this.$data);
+    logger.info(`${this.componentName} created ${hookMessageSuffix}`);
+    logger.info('component data', this.$data);
   },
   mounted() {
-    this.log(`${this.componentName} mounted ${hookMessageSuffix}`);
+    logger.info(`${this.componentName} mounted ${hookMessageSuffix}`);
   },
   updated() {
-    this.log(`${this.componentName} updated ${hookMessageSuffix}`);
+    logger.info(`${this.componentName} updated ${hookMessageSuffix}`);
   },
   destroyed() {
-    this.log(`${this.componentName} destroyed ${hookMessageSuffix}`);
-  },
-  methods: {
-    log(message, data) {
-      console.log(`Log ${format(Date.now(), displayTimeFormat)}: ${message}`);
-      if (data) {
-        console.log(JSON.stringify(data, null, 2));
-      }
-    },
+    logger.info(`${this.componentName} destroyed ${hookMessageSuffix}`);
   },
 };
 
 export const heroWatchers = {
+  // Watchers
   watch: {
     selectedHero: {
       immediate: true,
       deep: true,
       handler(newValue, oldValue) {
-        this.log('old values', oldValue);
-        this.log('new values', newValue);
+        logger.info('old values', oldValue);
+        logger.info('new values', newValue);
       },
     },
   },
