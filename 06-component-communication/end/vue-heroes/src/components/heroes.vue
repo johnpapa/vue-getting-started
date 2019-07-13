@@ -2,39 +2,39 @@
   <div class="content-container">
     <div class="section content-title-group">
       <h2 class="title">Heroes</h2>
-    </div>
-    <div class="columns">
-      <div class="column is-8" v-if="heroes">
-        <ul v-if="!selectedHero">
-          <li v-for="hero in heroes" :key="hero.id">
-            <div class="card">
-              <div class="card-content">
-                <div class="content">
-                  <div :key="hero.name" class="name">
-                    {{ hero.firstName }} {{ hero.lastName }}
+      <div class="columns">
+        <div class="column is-8" v-if="heroes">
+          <ul v-if="!selectedHero">
+            <li v-for="hero in heroes" :key="hero.id">
+              <div class="card">
+                <div class="card-content">
+                  <div class="content">
+                    <div :key="hero.name" class="name">
+                      {{ hero.firstName }} {{ hero.lastName }}
+                    </div>
+                    <div class="description">{{ hero.description }}</div>
                   </div>
-                  <div class="description">{{ hero.description }}</div>
                 </div>
+                <footer class="card-footer">
+                  <button
+                    class="link card-footer-item save-button"
+                    @click="selectHero(hero)"
+                  >
+                    <i class="fas fa-check"></i>
+                    <span>Select</span>
+                  </button>
+                </footer>
               </div>
-              <footer class="card-footer">
-                <button
-                  class="link card-footer-item save-button"
-                  @click="selectHero(hero)"
-                >
-                  <i class="fas fa-check"></i>
-                  <span>Select</span>
-                </button>
-              </footer>
-            </div>
-          </li>
-        </ul>
-        <HeroDetail
-          :hero="selectedHero"
-          @save="saveHero"
-          @cancel="cancelHero"
-          v-if="selectedHero"
-        />
-        <div class="notification is-info" v-show="message">{{ message }}</div>
+            </li>
+          </ul>
+          <HeroDetail
+            :hero="selectedHero"
+            @save="saveHero"
+            @cancel="cancelHero"
+            v-if="selectedHero"
+          />
+          <div class="notification is-info" v-show="message">{{ message }}</div>
+        </div>
       </div>
     </div>
   </div>

@@ -2,127 +2,127 @@
   <div class="content-container">
     <div class="section content-title-group">
       <h2 class="title">Heroes</h2>
-    </div>
-    <div class="columns">
-      <div class="column is-8" v-if="heroes">
-        <ul v-if="!selectedHero">
-          <li v-for="hero in heroes" :key="hero.id">
-            <div class="card">
-              <div class="card-content">
-                <div class="content">
-                  <div :key="hero.name" class="name">
-                    {{ hero.firstName }} {{ hero.lastName }}
+      <div class="columns">
+        <div class="column is-8" v-if="heroes">
+          <ul v-if="!selectedHero">
+            <li v-for="hero in heroes" :key="hero.id">
+              <div class="card">
+                <div class="card-content">
+                  <div class="content">
+                    <div :key="hero.name" class="name">
+                      {{ hero.firstName }} {{ hero.lastName }}
+                    </div>
+                    <div class="description">{{ hero.description }}</div>
                   </div>
-                  <div class="description">{{ hero.description }}</div>
                 </div>
+                <footer class="card-footer">
+                  <button
+                    class="link card-footer-item save-button"
+                    @click="selectHero(hero)"
+                  >
+                    <i class="fas fa-check"></i>
+                    <span>Select</span>
+                  </button>
+                </footer>
               </div>
-              <footer class="card-footer">
-                <button
-                  class="link card-footer-item save-button"
-                  @click="selectHero(hero)"
-                >
-                  <i class="fas fa-check"></i>
-                  <span>Select</span>
-                </button>
-              </footer>
-            </div>
-          </li>
-        </ul>
-        <!-- <HeroDetail
+            </li>
+          </ul>
+          <!-- <HeroDetail
           :hero="selectedHero"
           @save="saveHero"
           @cancel="cancelHero"
           v-if="selectedHero"
         /> -->
-        <!-- <template> -->
-        <div v-if="selectedHero">
-          <div class="card">
-            <header class="card-header">
-              <p class="card-header-title">{{ fullName }}</p>
-            </header>
-            <div class="card-content">
-              <div class="content">
-                <div class="field">
-                  <label class="label" for="id">id</label>
-                  <label class="input" name="id" readonly>{{
-                    selectedHero.id
-                  }}</label>
-                </div>
-                <div class="field">
-                  <label class="label" for="firstName">first name</label>
-                  <input
-                    class="input"
-                    name="firstName"
-                    v-model="selectedHero.firstName"
-                  />
-                </div>
-                <div class="field">
-                  <label class="label" for="lastName">last name</label>
-                  <input
-                    class="input"
-                    name="lastName"
-                    v-model="selectedHero.lastName"
-                  />
-                </div>
-                <div class="field">
-                  <label class="label" for="description">description</label>
-                  <input
-                    class="input"
-                    name="description"
-                    v-model="selectedHero.description"
-                  />
-                </div>
-                <div class="field">
-                  <label class="label" for="originDate">origin date</label>
-                  <input
-                    type="date"
-                    class="input"
-                    id="originDate"
-                    v-model="selectedHero.originDate"
-                  />
-                  <p class="comment">
-                    My origin story began on
-                    {{ selectedHero.originDate | shortDate }}
-                  </p>
-                </div>
-                <div class="field">
-                  <label class="label" for="capeCounter">cape counter</label>
-                  <input
-                    class="input"
-                    name="capeCounter"
-                    type="number"
-                    v-model="selectedHero.capeCounter"
-                  />
-                </div>
-                <div class="field">
-                  <label class="label" for="capeMessage">cape message</label>
-                  <label class="input" name="capeMessage">{{
-                    capeMessage
-                  }}</label>
+          <!-- <template> -->
+          <div v-if="selectedHero">
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title">{{ fullName }}</p>
+              </header>
+              <div class="card-content">
+                <div class="content">
+                  <div class="field">
+                    <label class="label" for="id">id</label>
+                    <label class="input" name="id" readonly>{{
+                      selectedHero.id
+                    }}</label>
+                  </div>
+                  <div class="field">
+                    <label class="label" for="firstName">first name</label>
+                    <input
+                      class="input"
+                      name="firstName"
+                      v-model="selectedHero.firstName"
+                    />
+                  </div>
+                  <div class="field">
+                    <label class="label" for="lastName">last name</label>
+                    <input
+                      class="input"
+                      name="lastName"
+                      v-model="selectedHero.lastName"
+                    />
+                  </div>
+                  <div class="field">
+                    <label class="label" for="description">description</label>
+                    <input
+                      class="input"
+                      name="description"
+                      v-model="selectedHero.description"
+                    />
+                  </div>
+                  <div class="field">
+                    <label class="label" for="originDate">origin date</label>
+                    <input
+                      type="date"
+                      class="input"
+                      id="originDate"
+                      v-model="selectedHero.originDate"
+                    />
+                    <p class="comment">
+                      My origin story began on
+                      {{ selectedHero.originDate | shortDate }}
+                    </p>
+                  </div>
+                  <div class="field">
+                    <label class="label" for="capeCounter">cape counter</label>
+                    <input
+                      class="input"
+                      name="capeCounter"
+                      type="number"
+                      v-model="selectedHero.capeCounter"
+                    />
+                  </div>
+                  <div class="field">
+                    <label class="label" for="capeMessage">cape message</label>
+                    <label class="input" name="capeMessage">{{
+                      capeMessage
+                    }}</label>
+                  </div>
                 </div>
               </div>
+              <footer class="card-footer">
+                <button
+                  class="link card-footer-item cancel-button"
+                  @click="cancelHero()"
+                >
+                  <i class="fas fa-undo"></i>
+                  <span>Cancel</span>
+                </button>
+                <button
+                  class="link card-footer-item save-button"
+                  @click="saveHero()"
+                >
+                  <i class="fas fa-save"></i>
+                  <span>Save</span>
+                </button>
+              </footer>
             </div>
-            <footer class="card-footer">
-              <button
-                class="link card-footer-item cancel-button"
-                @click="cancelHero()"
-              >
-                <i class="fas fa-undo"></i>
-                <span>Cancel</span>
-              </button>
-              <button
-                class="link card-footer-item save-button"
-                @click="saveHero()"
-              >
-                <i class="fas fa-save"></i>
-                <span>Save</span>
-              </button>
-            </footer>
           </div>
-        </div>
-        <!-- </template> -->
+          <!-- </template> -->
 
-        <div class="notification is-info" v-show="message">{{ message }}</div>
+          <div class="notification is-info" v-show="message">{{ message }}</div>
+        </div>
       </div>
     </div>
   </div>
