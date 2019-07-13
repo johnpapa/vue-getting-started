@@ -28,7 +28,7 @@
             </li>
           </ul>
 
-          <!-- <template> -->
+          <!-- <hero-detail> -->
           <div v-if="selectedHero">
             <div class="card">
               <header class="card-header">
@@ -114,7 +114,7 @@
               </footer>
             </div>
           </div>
-          <!-- </template> -->
+          <!-- </hero-detail> -->
 
           <div class="notification is-info" v-show="message">{{ message }}</div>
         </div>
