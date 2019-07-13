@@ -134,7 +134,9 @@ export default {
     'hero.capeCounter': {
       immediate: true,
       handler(newValue, oldValue) {
-        console.log(`Watcher evalauted. old=${oldValue}, new=${newValue}`);
+        console.log(
+          `CapeCounter watcher evalauted. old=${oldValue}, new=${newValue}`
+        );
         this.handleTheCapes(newValue);
       },
     },
