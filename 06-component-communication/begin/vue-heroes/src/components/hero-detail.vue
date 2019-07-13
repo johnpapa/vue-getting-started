@@ -1,6 +1,6 @@
 <template>
   <div>
-    I'm Lonely
+    Lonely Hero Details
   </div>
 </template>
 

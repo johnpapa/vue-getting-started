@@ -27,12 +27,7 @@
               </div>
             </li>
           </ul>
-          <!-- <HeroDetail
-          :hero="selectedHero"
-          @save="saveHero"
-          @cancel="cancelHero"
-          v-if="selectedHero"
-        /> -->
+
           <!-- <template> -->
           <div v-if="selectedHero">
             <div class="card">
@@ -129,16 +124,9 @@
 </template>
 
 <script>
-// move to hero-detail
 import { format } from 'date-fns';
 
-import {
-  displayDateFormat,
-  ourHeroes,
-  /* add these , heroWatchers, lifecycleHooks, logger */
-} from '../shared';
-
-// import HeroDetail from '@/components/hero-detail'; // Add this
+import { displayDateFormat, ourHeroes } from '../shared';
 
 export default {
   name: 'Heroes',
@@ -150,18 +138,9 @@ export default {
       capeMessage: '',
     };
   },
-  // Add components
-  // components: {
-  //   HeroDetail,
-  // },
-  // Add mixins
-  // mixins: [lifecycleHooks, heroWatchers],
   created() {
     this.loadHeroes();
-    // Create this after mixins, then COPY this to hero detail
-    // logger.info(`${this.componentName} created hook called`); // Add this
   },
-  // Move computed to HeroDetail
   computed: {
     fullName() {
       return this.selectedHero
@@ -184,7 +163,6 @@ export default {
     cancelHero() {
       this.selectedHero = undefined;
     },
-    // Add hero parameter (instead of using this.selectedHero)
     saveHero() {
       const index = this.heroes.findIndex(h => h.id === this.selectedHero.id);
       this.heroes.splice(index, 1, this.selectedHero);
@@ -194,7 +172,6 @@ export default {
     selectHero(hero) {
       this.selectedHero = hero;
     },
-    // Move handleTheCaps to HeroDetail
     handleTheCapes(newValue) {
       const value = parseInt(newValue, 10);
       switch (value) {
@@ -213,7 +190,6 @@ export default {
       }
     },
   },
-  // Move watcher to HeroDetail, but change it to hero (not selectedHero)
   watch: {
     'selectedHero.capeCounter': {
       immediate: true,
@@ -223,7 +199,6 @@ export default {
       },
     },
   },
-  // Move filter to HeroDetail
   filters: {
     shortDate: function(value) {
       return format(value, displayDateFormat);
