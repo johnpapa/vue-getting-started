@@ -4,6 +4,7 @@
       <h2 class="title">Heroes</h2>
       <div class="columns">
         <div class="column is-8" v-if="heroes">
+          <!-- <heroes-list> -->
           <ul v-if="!selectedHero">
             <li v-for="hero in heroes" :key="hero.id">
               <div class="card">
@@ -27,6 +28,7 @@
               </div>
             </li>
           </ul>
+          <!-- <heroes-list> -->
 
           <!-- <hero-detail> -->
           <div v-if="selectedHero">
