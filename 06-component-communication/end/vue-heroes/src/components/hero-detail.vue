@@ -131,7 +131,7 @@ export default {
     },
   },
   watch: {
-    'hero.capeCounter': {
+    'clonedHero.capeCounter': {
       immediate: true,
       handler(newValue, oldValue) {
         console.log(
