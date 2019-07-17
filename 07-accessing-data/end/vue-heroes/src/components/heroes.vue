@@ -41,9 +41,8 @@
 </template>
 
 <script>
-import { heroWatchers, lifecycleHooks, logger, data } from '../shared';
+import { heroWatchers, lifecycleHooks, data } from '../shared';
 import HeroDetail from '@/components/hero-detail';
-import * as axios from 'axios';
 
 export default {
   name: 'Heroes',
