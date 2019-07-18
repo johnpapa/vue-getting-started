@@ -7,7 +7,7 @@ import { API } from './config';
 
 const getHeroes = async function() {
   try {
-    const response = await axios.get(`${API}/heroes.json`);
+    const response = await axios.get(`${API}/heroes`);
     // cant just return this, because its not what we want
     // return response.data;
     // but what if there is bad data in the response?

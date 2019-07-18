@@ -1,0 +1,34 @@
+[
+  {
+    "id": 10,
+    "firstName": "Ella",
+    "lastName": "Papa",
+    "capeCounter": 1,
+    "originDate": "June 06, 1996",
+    "description": "fashionista"
+  },
+  {
+    "id": 20,
+    "firstName": "Madelyn",
+    "lastName": "Papa",
+    "capeCounter": 3,
+    "originDate": "08/01/1998",
+    "description": "the cat whisperer"
+  },
+  {
+    "id": 30,
+    "firstName": "Haley",
+    "lastName": "Papa",
+    "capeCounter": 2,
+    "originDate": "09/01/1999",
+    "description": "pen wielder"
+  },
+  {
+    "id": 40,
+    "firstName": "Landon",
+    "lastName": "Papa",
+    "capeCounter": 0,
+    "originDate": "10/01/2000",
+    "description": "arc trooper"
+  }
+]
