@@ -6,27 +6,25 @@ import { inputDateFormat } from './constants';
 import { API } from './config';
 
 const getHeroes = async function() {
+  // cant just return this, because its not what we want
+  // return response.data;
+  // but what if there is bad data in the response?
+  // let data = response.data;
+  // Let's parse it better
   try {
-    const response = await axios.get(`${API}/heroes`);
-    // cant just return this, because its not what we want
-    // return response.data;
-    // but what if there is bad data in the response?
-    // let data = response.data;
-    // Let's parse it better
+    const response = await axios.get(`${API}/heroes.json`);
+
     let data = parseList(response);
+
     const heroes = data.map(h => {
       h.originDate = format(h.originDate, inputDateFormat);
       return h;
     });
     return heroes;
   } catch (error) {
-    console.error(error); // customize how you catch errors
+    console.error(error);
     return [];
   }
-};
-
-export const data = {
-  getHeroes,
 };
 
 const parseList = response => {
@@ -38,11 +36,6 @@ const parseList = response => {
   return list;
 };
 
-// const parseItem = (response, code) => {
-//   if (response.status !== code) throw Error(response.message);
-//   let item = response.data;
-//   if (typeof item !== 'object') {
-//     item = undefined;
-//   }
-//   return item;
-// };
+export const data = {
+  getHeroes,
+};
