@@ -45,6 +45,12 @@ div.color-line {
   line-height: 1.125;
   word-break: break-word;
 }
+.sub-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1;
+  word-break: break-word;
+}
 
 header {
   font-weight: bold;
@@ -96,6 +102,19 @@ header {
 .content-title-group {
   margin-bottom: 16px;
   h2 {
+    border-left: 16px solid $primary;
+    border-bottom: 2px solid $primary;
+    padding-left: 8px;
+    padding-right: 16px;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #555;
+    letter-spacing: 0px;
+    &:hover {
+      color: $link;
+    }
+  }
+  h3 {
     border-left: 16px solid $primary;
     border-bottom: 2px solid $primary;
     padding-left: 8px;

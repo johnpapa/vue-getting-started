@@ -27,6 +27,17 @@ const getHeroes = async function() {
   }
 };
 
+const getVillains = async function() {
+  try {
+    const response = await axios.get(`${API}/villains.json`);
+    let villains = parseList(response);
+    return villains;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+};
+
 const parseList = response => {
   if (response.status !== 200) throw Error(response.message);
   if (!response.data) return [];
@@ -39,4 +50,5 @@ const parseList = response => {
 
 export const data = {
   getHeroes,
+  getVillains,
 };
