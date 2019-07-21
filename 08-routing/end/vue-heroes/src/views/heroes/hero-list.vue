@@ -1,9 +1,9 @@
 <template>
   <div class="content-container">
-    <div class="section content-title-group">
-      <h2 class="title">Heroes</h2>
-      <div class="columns">
-        <div class="column is-8" v-if="heroes">
+    <div class="columns">
+      <div class="column is-8">
+        <div class="section content-title-group">
+          <h2 class="title">Heroes</h2>
           <ul>
             <li v-for="hero in heroes" :key="hero.id">
               <div class="card">
@@ -28,8 +28,8 @@
               </div>
             </li>
           </ul>
-          <div class="notification is-info" v-show="message">{{ message }}</div>
         </div>
+        <div class="notification is-info" v-show="message">{{ message }}</div>
       </div>
     </div>
   </div>
