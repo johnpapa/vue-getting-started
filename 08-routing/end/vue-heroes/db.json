@@ -2,8 +2,8 @@
   "heroes": [
     {
       "id": 10,
-      "firstName": "Ella1",
-      "lastName": "Papa2",
+      "firstName": "Ella",
+      "lastName": "Papa",
       "capeCounter": 1,
       "originDate": "1996-06-06",
       "description": "fashionista"
@@ -36,27 +36,57 @@
   "villains": [
     {
       "id": 10,
-      "firstName": "Miracle",
-      "lastName": "Max",
-      "description": "Have fun storming the castle!"
+      "firstName": "Malcolm",
+      "lastName": "Reynolds",
+      "description": "I don't believe there is a power in the verse that can stop Kaylee from being cheerful."
     },
     {
       "id": 20,
-      "firstName": "Princess",
-      "lastName": "Buttercup",
-      "description": "Stable boy, come here!"
+      "firstName": "Kaylee",
+      "lastName": "Frye",
+      "description": "No power in the 'verse can stop me."
     },
     {
       "id": 30,
-      "firstName": "Wesley",
-      "lastName": "",
-      "description": "As you wish"
+      "firstName": "Hoban",
+      "lastName": "Washburne",
+      "description": "I don't mean to alarm anybody, but I think we're being followed."
     },
     {
       "id": 40,
-      "firstName": "Fessic",
-      "lastName": "",
-      "description": "Anybody got a peanut?"
+      "firstName": "Zoë",
+      "lastName": "Washburne",
+      "description": "First rule of battle, little one ... don't ever let them know where you are."
+    },
+    {
+      "id": 50,
+      "firstName": "Inara",
+      "lastName": "Serra",
+      "description": "It wasn't entirely a disaster"
+    },
+    {
+      "id": 60,
+      "firstName": "Simon",
+      "lastName": "Tam",
+      "description": "This must be what going mad feels like."
+    },
+    {
+      "id": 70,
+      "firstName": "Shepherd",
+      "lastName": "Book",
+      "description": "Oh, I got heathens aplenty right here."
+    },
+    {
+      "id": 80,
+      "firstName": "River",
+      "lastName": "Tam",
+      "description": "Call me if anyone interesting shows up"
+    },
+    {
+      "id": 90,
+      "firstName": "Jayne",
+      "lastName": "Cobb",
+      "description": "Ten percent of nothin' is ... let me do the math here ... nothin' into nothin' ... carry the nothin'"
     }
   ]
 }
