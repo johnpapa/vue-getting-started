@@ -38,6 +38,18 @@ const getVillains = async function() {
   }
 };
 
+const getHero = async function(id) {
+  const heroes = await getHeroes();
+  let hero = heroes.find(h => h.id === id);
+  return hero;
+};
+
+const getVillain = async function(id) {
+  const villains = await getVillains();
+  let villain = villains.find(v => v.id === id);
+  return villain;
+};
+
 const parseList = response => {
   if (response.status !== 200) throw Error(response.message);
   if (!response.data) return [];
@@ -50,5 +62,7 @@ const parseList = response => {
 
 export const data = {
   getHeroes,
+  getHero,
   getVillains,
+  getVillain,
 };

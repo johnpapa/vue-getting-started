@@ -8,32 +8,22 @@
         <div class="content">
           <div class="field">
             <label class="label" for="id">id</label>
-            <label class="input" name="id" readonly>{{
-              clonedVillain.id
-            }}</label>
+            <label class="input" name="id" readonly>{{ villain.id }}</label>
           </div>
           <div class="field">
             <label class="label" for="firstName">first name</label>
-            <input
-              class="input"
-              name="firstName"
-              v-model="clonedVillain.firstName"
-            />
+            <input class="input" name="firstName" v-model="villain.firstName" />
           </div>
           <div class="field">
             <label class="label" for="lastName">last name</label>
-            <input
-              class="input"
-              name="lastName"
-              v-model="clonedVillain.lastName"
-            />
+            <input class="input" name="lastName" v-model="villain.lastName" />
           </div>
           <div class="field">
             <label class="label" for="description">description</label>
             <input
               class="input"
               name="description"
-              v-model="clonedVillain.description"
+              v-model="villain.description"
             />
           </div>
         </div>
@@ -46,10 +36,7 @@
           <i class="fas fa-undo"></i>
           <span>Cancel</span>
         </button>
-        <button
-          class="link card-footer-item save-button"
-          @click="saveVillain()"
-        >
+        <button class="link card-footer-item" @click="saveVillain()">
           <i class="fas fa-save"></i>
           <span>Save</span>
         </button>
@@ -59,32 +46,39 @@
 </template>
 
 <script>
+import { data } from '../../shared';
+
 export default {
   name: 'VillainDetail',
   props: {
-    villain: {
-      type: Object,
-      default: () => {},
+    id: {
+      type: Number,
+      default: 0,
     },
   },
   data() {
     return {
-      clonedVillain: { ...this.villain },
+      villain: {},
     };
+  },
+  async created() {
+    this.villain = await data.getVillain(this.id);
   },
   computed: {
     fullName() {
-      return this.clonedVillain
-        ? `${this.clonedVillain.firstName} ${this.clonedVillain.lastName}`
+      return this.villain
+        ? `${this.villain.firstName} ${this.villain.lastName}`
         : '';
     },
   },
   methods: {
     cancelVillain() {
-      this.$emit('cancel');
+      this.$router.push({ name: 'villains' });
+      // this.$emit('cancel');
     },
     saveVillain() {
-      this.$emit('save', this.clonedVillain);
+      this.$router.push({ name: 'villains' });
+      // this.$emit('save', this.villain);
     },
   },
 };

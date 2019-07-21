@@ -17,7 +17,7 @@
                 </div>
                 <footer class="card-footer">
                   <button
-                    class="link card-footer-item save-button"
+                    class="link card-footer-item"
                     @click="selectHero(hero)"
                   >
                     <i class="fas fa-check"></i>

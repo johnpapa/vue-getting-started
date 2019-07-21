@@ -18,7 +18,7 @@
                 </div>
                 <footer class="card-footer">
                   <button
-                    class="link card-footer-item save-button"
+                    class="link card-footer-item"
                     @click="selectHero(hero)"
                   >
                     <i class="fas fa-check"></i>
@@ -106,10 +106,7 @@
                   <i class="fas fa-undo"></i>
                   <span>Cancel</span>
                 </button>
-                <button
-                  class="link card-footer-item save-button"
-                  @click="saveHero()"
-                >
+                <button class="link card-footer-item" @click="saveHero()">
                   <i class="fas fa-save"></i>
                   <span>Save</span>
                 </button>

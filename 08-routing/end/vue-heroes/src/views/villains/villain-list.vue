@@ -16,23 +16,39 @@
                   </div>
                 </div>
                 <footer class="card-footer">
-                  <button
-                    class="link card-footer-item save-button"
+                  <router-link
+                    tag="button"
+                    class="link card-footer-item"
+                    :to="{ name: 'villain-detail', params: { id: villain.id } }"
+                  >
+                    <i class="fas fa-check"></i>
+                    <span>Select</span>
+                  </router-link>
+                  <router-link
+                    tag="button"
+                    class="link card-footer-item"
+                    :to="{ path: `villains/${villain.id}` }"
+                  >
+                    <i class="fas fa-check"></i>
+                    <span>Select</span>
+                  </router-link>
+                  <!-- <button
+                    class="link card-footer-item"
                     @click="selectVillain(villain)"
                   >
                     <i class="fas fa-check"></i>
                     <span>Select</span>
-                  </button>
+                  </button> -->
                 </footer>
               </div>
             </li>
           </ul>
-          <VillainDetail
+          <!-- <VillainDetail
             :villain="selectedVillain"
             @save="saveVillain"
             @cancel="cancelVillain"
             v-if="selectedVillain"
-          />
+          /> -->
           <div class="notification is-info" v-show="message">{{ message }}</div>
         </div>
       </div>
@@ -42,10 +58,16 @@
 
 <script>
 import { data } from '../../shared';
-import VillainDetail from '@/views/villains/villain-detail';
+// import VillainDetail from '@/views/villains/villain-detail';
 
 export default {
   name: 'Villains',
+  props: {
+    id: {
+      type: Number,
+      default: 0,
+    },
+  },
   data() {
     return {
       villains: [],
@@ -54,9 +76,9 @@ export default {
       capeMessage: '',
     };
   },
-  components: {
-    VillainDetail,
-  },
+  // components: {
+  //   VillainDetail,
+  // },
   async created() {
     await this.loadVillains();
   },

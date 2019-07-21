@@ -26,6 +26,26 @@ export default new Router({
         import(/* webpackChunkName: "villains" */ './views/villains/villain-list.vue'),
     },
     {
+      path: '/villains/:id',
+      name: 'villain-detail',
+      props: route => ({ id: parseInt(route.params.id) }),
+      component: () =>
+        import(/* webpackChunkName: "villains" */ './views/villains/villain-detail.vue'),
+      // children: [
+      //   {
+      //     path: 'view',
+      //     name: 'villain-ro',
+      //     component: VillainB,
+      //   },
+      //   {
+      //     path: 'detail',
+      //     name: 'villain-edit',
+      //     // props: route => ({ id: parseInt(route.params.id) }),
+      //     component: VillainEdit,
+      //   },
+      // ],
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
