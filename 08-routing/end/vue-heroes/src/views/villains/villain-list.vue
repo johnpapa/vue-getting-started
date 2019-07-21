@@ -4,7 +4,7 @@
       <h2 class="title">Villains</h2>
       <div class="columns">
         <div class="column is-8" v-if="villains">
-          <ul v-if="!selectedVillain">
+          <ul>
             <li v-for="villain in villains" :key="villain.id">
               <div class="card">
                 <div class="card-content">
@@ -24,31 +24,18 @@
                     <i class="fas fa-check"></i>
                     <span>Select</span>
                   </router-link>
-                  <router-link
+                  <!-- <router-link
                     tag="button"
                     class="link card-footer-item"
                     :to="{ path: `villains/${villain.id}` }"
                   >
                     <i class="fas fa-check"></i>
                     <span>Select</span>
-                  </router-link>
-                  <!-- <button
-                    class="link card-footer-item"
-                    @click="selectVillain(villain)"
-                  >
-                    <i class="fas fa-check"></i>
-                    <span>Select</span>
-                  </button> -->
+                  </router-link> -->
                 </footer>
               </div>
             </li>
           </ul>
-          <!-- <VillainDetail
-            :villain="selectedVillain"
-            @save="saveVillain"
-            @cancel="cancelVillain"
-            v-if="selectedVillain"
-          /> -->
           <div class="notification is-info" v-show="message">{{ message }}</div>
         </div>
       </div>
@@ -57,8 +44,7 @@
 </template>
 
 <script>
-import { data } from '../../shared';
-// import VillainDetail from '@/views/villains/villain-detail';
+import { dataService } from '../../shared';
 
 export default {
   name: 'Villains',
@@ -71,14 +57,9 @@ export default {
   data() {
     return {
       villains: [],
-      selectedVillain: undefined,
       message: '',
-      capeMessage: '',
     };
   },
-  // components: {
-  //   VillainDetail,
-  // },
   async created() {
     await this.loadVillains();
   },
@@ -87,21 +68,9 @@ export default {
       this.villains = [];
       this.message = 'getting the villains, please be patient';
 
-      this.villains = await data.getVillains();
+      this.villains = await dataService.getVillains();
 
       this.message = '';
-    },
-    cancelVillain() {
-      this.selectedVillain = undefined;
-    },
-    saveVillain(villain) {
-      const index = this.villains.findIndex(h => h.id === villain.id);
-      this.villains.splice(index, 1, villain);
-      this.villains = [...this.villains];
-      this.selectedVillain = undefined;
-    },
-    selectVillain(villain) {
-      this.selectedVillain = villain;
     },
   },
 };

@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import { data } from '../../shared';
+import { dataService } from '../../shared';
 
 export default {
   name: 'VillainDetail',
@@ -62,7 +62,7 @@ export default {
     };
   },
   async created() {
-    this.villain = await data.getVillain(this.id);
+    this.villain = await dataService.getVillain(this.id);
   },
   computed: {
     fullName() {
@@ -74,11 +74,10 @@ export default {
   methods: {
     cancelVillain() {
       this.$router.push({ name: 'villains' });
-      // this.$emit('cancel');
     },
-    saveVillain() {
+    async saveVillain() {
+      await dataService.updateVillain(this.villain);
       this.$router.push({ name: 'villains' });
-      // this.$emit('save', this.villain);
     },
   },
 };

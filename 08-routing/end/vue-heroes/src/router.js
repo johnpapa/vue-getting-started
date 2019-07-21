@@ -3,8 +3,7 @@ import Router from 'vue-router';
 import PageNotFound from '@/views/page-not-found';
 
 Vue.use(Router);
-console.log('process.env.BASE_URL');
-console.log(process.env.BASE_URL);
+
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -26,24 +25,20 @@ export default new Router({
         import(/* webpackChunkName: "villains" */ './views/villains/villain-list.vue'),
     },
     {
+      path: '/heroes/:id',
+      name: 'hero-detail',
+      props: true,
+      // props: route => ({ id: parseInt(route.params.id) }),
+      component: () =>
+        import(/* webpackChunkName: "heroes" */ './views/heroes/hero-detail.vue'),
+    },
+    {
       path: '/villains/:id',
       name: 'villain-detail',
-      props: route => ({ id: parseInt(route.params.id) }),
+      props: true,
+      // props: route => ({ id: parseInt(route.params.id) }),
       component: () =>
         import(/* webpackChunkName: "villains" */ './views/villains/villain-detail.vue'),
-      // children: [
-      //   {
-      //     path: 'view',
-      //     name: 'villain-ro',
-      //     component: VillainB,
-      //   },
-      //   {
-      //     path: 'detail',
-      //     name: 'villain-edit',
-      //     // props: route => ({ id: parseInt(route.params.id) }),
-      //     component: VillainEdit,
-      //   },
-      // ],
     },
     {
       path: '/about',

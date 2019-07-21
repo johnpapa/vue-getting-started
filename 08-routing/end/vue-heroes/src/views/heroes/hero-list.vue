@@ -4,7 +4,7 @@
       <h2 class="title">Heroes</h2>
       <div class="columns">
         <div class="column is-8" v-if="heroes">
-          <ul v-if="!selectedHero">
+          <ul>
             <li v-for="hero in heroes" :key="hero.id">
               <div class="card">
                 <div class="card-content">
@@ -16,23 +16,18 @@
                   </div>
                 </div>
                 <footer class="card-footer">
-                  <button
+                  <router-link
+                    tag="button"
                     class="link card-footer-item"
-                    @click="selectHero(hero)"
+                    :to="{ name: 'hero-detail', params: { id: hero.id } }"
                   >
                     <i class="fas fa-check"></i>
                     <span>Select</span>
-                  </button>
+                  </router-link>
                 </footer>
               </div>
             </li>
           </ul>
-          <HeroDetail
-            :hero="selectedHero"
-            @save="saveHero"
-            @cancel="cancelHero"
-            v-if="selectedHero"
-          />
           <div class="notification is-info" v-show="message">{{ message }}</div>
         </div>
       </div>
@@ -41,23 +36,16 @@
 </template>
 
 <script>
-import { heroWatchers, lifecycleHooks, data } from '../../shared';
-import HeroDetail from '@/views/heroes/hero-detail';
+import { dataService } from '../../shared';
 
 export default {
   name: 'Heroes',
   data() {
     return {
       heroes: [],
-      selectedHero: undefined,
       message: '',
-      capeMessage: '',
     };
   },
-  components: {
-    HeroDetail,
-  },
-  mixins: [lifecycleHooks, heroWatchers],
   async created() {
     await this.loadHeroes();
   },
@@ -66,21 +54,9 @@ export default {
       this.heroes = [];
       this.message = 'getting the heroes, please be patient';
 
-      this.heroes = await data.getHeroes();
+      this.heroes = await dataService.getHeroes();
 
       this.message = '';
-    },
-    cancelHero() {
-      this.selectedHero = undefined;
-    },
-    saveHero(hero) {
-      const index = this.heroes.findIndex(h => h.id === hero.id);
-      this.heroes.splice(index, 1, hero);
-      this.heroes = [...this.heroes];
-      this.selectedHero = undefined;
-    },
-    selectHero(hero) {
-      this.selectedHero = hero;
     },
   },
 };
