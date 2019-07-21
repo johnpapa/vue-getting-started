@@ -1,21 +1,22 @@
 <template>
   <div class="content-container">
-    <div class="content-title-group not-found">
-      <h2 class="title">Vue - Tour of Heroes</h2>
+    <div class="section content-title-group">
+      <h2 class="title">About Vue Getting Started</h2>
       <p>here are some helpful resources for this project.</p>
       <p>
         by
         <a href="http://twitter.com/john_papa">John Papa</a>
       </p>
       <br />
-      <h2 class="title">Source Code</h2>
-      <ul>
-        <li>
-          <a href="https://github.com/johnpapa/vue-getting-started"
-            >github.com/johnpapa/vue-getting-started</a
-          >
-        </li>
-      </ul>
+      <h3 class="title sub-title">Source Code</h3>
+      <p>You can find the source code for this project at the link below</p>
+      <p>
+        <a
+          href="https://github.com/johnpapa/vue-getting-started"
+          target="_blank"
+          >github.com/johnpapa/vue-getting-started</a
+        >
+      </p>
       <br />
     </div>
   </div>
