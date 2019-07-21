@@ -45,16 +45,6 @@ const getVillain = async function(id) {
   return villain;
 };
 
-const deleteHero = async function(hero) {
-  try {
-    const response = await axios.delete(`${API}/heroes/${hero.id}`);
-    parseItem(response, 200);
-  } catch (error) {
-    console.error(error);
-  }
-  return null;
-};
-
 const updateHero = async function(hero) {
   try {
     const response = await axios.put(`${API}/heroes/${hero.id}`, hero);
@@ -64,16 +54,6 @@ const updateHero = async function(hero) {
     console.error(error);
     return null;
   }
-};
-
-const deleteVillain = async function(villain) {
-  try {
-    const response = await axios.delete(`${API}/villains/${villain.id}`);
-    parseItem(response, 200);
-  } catch (error) {
-    console.error(error);
-  }
-  return null;
 };
 
 const updateVillain = async function(villain) {
@@ -109,10 +89,8 @@ export const parseItem = (response, code) => {
 export const dataService = {
   getHeroes,
   getHero,
-  deleteHero,
   updateHero,
-  deleteVillain,
-  updateVillain,
   getVillains,
   getVillain,
+  updateVillain,
 };
