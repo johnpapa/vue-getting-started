@@ -22,6 +22,28 @@ const getHeroes = async function() {
   }
 };
 
+const getHero = async function(id) {
+  try {
+    const response = await axios.get(`${API}/heroes/${id}`);
+    let hero = parseItem(response, 200);
+    return hero;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
+const updateHero = async function(hero) {
+  try {
+    const response = await axios.put(`${API}/heroes/${hero.id}`, hero);
+    const updatedHero = parseItem(response, 200);
+    return updatedHero;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
 const getVillains = async function() {
   try {
     const response = await axios.get(`${API}/villains`);
@@ -33,23 +55,11 @@ const getVillains = async function() {
   }
 };
 
-const getHero = async function(id) {
-  const heroes = await getHeroes();
-  let hero = heroes.find(h => h.id === id);
-  return hero;
-};
-
 const getVillain = async function(id) {
-  const villains = await getVillains();
-  let villain = villains.find(v => v.id === id);
-  return villain;
-};
-
-const updateHero = async function(hero) {
   try {
-    const response = await axios.put(`${API}/heroes/${hero.id}`, hero);
-    const updatedHero = parseItem(response, 200);
-    return updatedHero;
+    const response = await axios.get(`${API}/villains/${id}`);
+    let villain = parseItem(response, 200);
+    return villain;
   } catch (error) {
     console.error(error);
     return null;
