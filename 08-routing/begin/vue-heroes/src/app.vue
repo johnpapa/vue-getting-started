@@ -2,9 +2,8 @@
   <div id="app">
     <HeaderBar />
     <div class="main-section columns">
-      <NavBar />
       <main class="column">
-        <router-view />
+        <Heroes />
       </main>
     </div>
   </div>
@@ -12,11 +11,11 @@
 
 <script>
 import HeaderBar from '@/components/header-bar';
-import NavBar from '@/components/nav-bar';
+import Heroes from '@/components/hero-list';
 
 export default {
   name: 'App',
-  components: { HeaderBar, NavBar },
+  components: { HeaderBar, Heroes },
 };
 </script>
 

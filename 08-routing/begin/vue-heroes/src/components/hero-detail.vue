@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { dataService } from '../../shared';
+import { dataService } from '../shared';
 
 export default {
   name: 'HeroDetail',
@@ -74,11 +74,11 @@ export default {
   },
   methods: {
     cancelHero() {
-      this.$router.push({ name: 'heroes' });
+      this.$emit('done');
     },
     async saveHero() {
       await dataService.updateHero(this.hero);
-      this.$router.push({ name: 'heroes' });
+      this.$emit('done');
     },
   },
 };

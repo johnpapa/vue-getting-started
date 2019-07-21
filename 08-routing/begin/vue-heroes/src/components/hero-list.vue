@@ -1,9 +1,9 @@
 <template>
   <div class="content-container">
-    <div class="section content-title-group">
-      <h2 class="title">Heroes</h2>
-      <div class="columns">
-        <div class="column is-8" v-if="heroes">
+    <div class="columns">
+      <div class="column is-8">
+        <div class="section content-title-group" v-if="!selectedHero">
+          <h2 class="title">Heroes</h2>
           <ul>
             <li v-for="hero in heroes" :key="hero.id">
               <div class="card">
@@ -16,27 +16,32 @@
                   </div>
                 </div>
                 <footer class="card-footer">
-                  <router-link
-                    tag="button"
+                  <button
                     class="link card-footer-item"
-                    :to="{ name: 'hero-detail', params: { id: hero.id } }"
+                    @click="selectHero(hero)"
                   >
                     <i class="fas fa-check"></i>
                     <span>Select</span>
-                  </router-link>
+                  </button>
                 </footer>
               </div>
             </li>
           </ul>
-          <div class="notification is-info" v-show="message">{{ message }}</div>
         </div>
+        <HeroDetail
+          v-if="selectedHero"
+          :id="selectedHero.id"
+          @done="loadHeroes"
+        />
+        <div class="notification is-info" v-show="message">{{ message }}</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { dataService } from '../../shared';
+import { dataService } from '../shared';
+import HeroDetail from './hero-detail';
 
 export default {
   name: 'Heroes',
@@ -44,7 +49,11 @@ export default {
     return {
       heroes: [],
       message: '',
+      selectedHero: undefined,
     };
+  },
+  components: {
+    HeroDetail,
   },
   async created() {
     await this.loadHeroes();
@@ -52,11 +61,15 @@ export default {
   methods: {
     async loadHeroes() {
       this.heroes = [];
+      this.selectedHero = undefined;
       this.message = 'getting the heroes, please be patient';
 
       this.heroes = await dataService.getHeroes();
 
       this.message = '';
+    },
+    selectHero(hero) {
+      this.selectedHero = hero;
     },
   },
 };
