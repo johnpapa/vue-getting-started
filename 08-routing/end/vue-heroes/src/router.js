@@ -4,7 +4,6 @@ import PageNotFound from '@/views/page-not-found';
 
 Vue.use(Router);
 
-const parseId = route => ({ id: parseInt(route.params.id) });
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -17,36 +16,19 @@ export default new Router({
       path: '/heroes',
       name: 'heroes',
       component: () =>
-        import(/* webpackChunkName: "bundle.heroes" */ './views/heroes/hero-list.vue'),
-    },
-    {
-      path: '/villains',
-      name: 'villains',
-      component: () =>
-        import(/* webpackChunkName: "bundle.villains" */ './views/villains/villain-list.vue'),
+        import(/* webpackChunkName: "bundle.heroes" */ './views/heroes/heroes.vue'),
     },
     {
       path: '/heroes/:id',
       name: 'hero-detail',
       // props: true,
-      props: parseId,
+      props: r => ({ id: parseInt(r.params.id) }),
       component: () =>
         import(/* webpackChunkName: "bundle.heroes" */ './views/heroes/hero-detail.vue'),
     },
     {
-      path: '/villains/:id',
-      name: 'villain-detail',
-      // props: true,
-      props: parseId,
-      component: () =>
-        import(/* webpackChunkName: "bundle.villains" */ './views/villains/villain-detail.vue'),
-    },
-    {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: () =>
         import(/* webpackChunkName: "bundle.about" */ './views/about.vue'),
     },
