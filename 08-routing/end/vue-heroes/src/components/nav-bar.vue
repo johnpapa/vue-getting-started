@@ -8,5 +8,3 @@
     </ul>
   </nav>
 </template>
-
-<style lang="scss"></style>
