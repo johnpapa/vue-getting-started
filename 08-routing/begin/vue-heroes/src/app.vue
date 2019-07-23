@@ -11,7 +11,7 @@
 
 <script>
 import HeaderBar from '@/components/header-bar';
-import Heroes from '@/components/hero-list';
+import Heroes from '@/components/heroes';
 
 export default {
   name: 'App',
