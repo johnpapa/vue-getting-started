@@ -4,6 +4,8 @@ import PageNotFound from '@/views/page-not-found';
 
 Vue.use(Router);
 
+const parseProps = r => ({ id: parseInt(r.params.id) });
+
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -22,7 +24,7 @@ export default new Router({
       path: '/heroes/:id',
       name: 'hero-detail',
       // props: true,
-      props: r => ({ id: parseInt(r.params.id) }),
+      props: parseProps,
       component: () =>
         import(/* webpackChunkName: "bundle.heroes" */ './views/hero-detail.vue'),
     },
