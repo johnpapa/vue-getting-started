@@ -44,39 +44,6 @@ const updateHero = async function(hero) {
   }
 };
 
-const getVillains = async function() {
-  try {
-    const response = await axios.get(`${API}/villains`);
-    let villains = parseList(response);
-    return villains;
-  } catch (error) {
-    console.error(error);
-    return [];
-  }
-};
-
-const getVillain = async function(id) {
-  try {
-    const response = await axios.get(`${API}/villains/${id}`);
-    let villain = parseItem(response, 200);
-    return villain;
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-};
-
-const updateVillain = async function(villain) {
-  try {
-    const response = await axios.put(`${API}/villains/${villain.id}`, villain);
-    const updatedVillain = parseItem(response, 200);
-    return updatedVillain;
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-};
-
 const parseList = response => {
   if (response.status !== 200) throw Error(response.message);
   if (!response.data) return [];
@@ -100,7 +67,4 @@ export const dataService = {
   getHeroes,
   getHero,
   updateHero,
-  getVillains,
-  getVillain,
-  updateVillain,
 };
