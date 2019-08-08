@@ -29,6 +29,20 @@ export default new Router({
         import(/* webpackChunkName: "bundle.heroes" */ './views/hero-detail.vue'),
     },
     {
+      path: '/villains',
+      name: 'villains',
+      component: () =>
+        import(/* webpackChunkName: "bundle.villains" */ './views/villains.vue'),
+    },
+    {
+      path: '/villains/:id',
+      name: 'villain-detail',
+      // props: true,
+      props: parseProps,
+      component: () =>
+        import(/* webpackChunkName: "bundle.villains" */ './views/villain-detail.vue'),
+    },
+    {
       path: '/about',
       name: 'about',
       component: () =>
