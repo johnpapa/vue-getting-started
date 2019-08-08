@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import { dataService } from '../../shared';
+import { dataService } from '../shared';
 
 export default {
   name: 'VillainDetail',
