@@ -4,6 +4,16 @@
       <div class="column is-8">
         <div class="section content-title-group">
           <h2 class="title">Villains</h2>
+          <button class="button refresh-button" @click="loadVillains()">
+            <i class="fas fa-sync"></i>
+          </button>
+          <router-link
+            tag="button"
+            class="button add-button"
+            :to="{ name: 'villain-detail', params: { id: 0 } }"
+          >
+            <i class="fas fa-plus"></i>
+          </router-link>
           <ul>
             <li v-for="villain in villains" :key="villain.id">
               <div class="card">
@@ -16,6 +26,13 @@
                   </div>
                 </div>
                 <footer class="card-footer">
+                  <button
+                    class="link card-footer-item"
+                    @click="askToDelete(villain)"
+                  >
+                    <i class="fas fa-trash"></i>
+                    <span>Delete</span>
+                  </button>
                   <router-link
                     tag="button"
                     class="link card-footer-item"
@@ -40,37 +57,69 @@
         <div class="notification is-info" v-show="message">{{ message }}</div>
       </div>
     </div>
+    <Modal
+      :message="modalMessage"
+      :isOpen="showModal"
+      @handleNo="closeModal"
+      @handleYes="deleteVillain"
+    >
+    </Modal>
   </div>
 </template>
 
 <script>
-import { dataService } from '../shared';
+import { mapActions, mapGetters } from 'vuex';
+import Modal from '@/components/modal';
+// import { dataService } from '../shared';
 
 export default {
   name: 'Villains',
-  props: {
-    id: {
-      type: Number,
-      default: 0,
-    },
-  },
   data() {
     return {
-      villains: [],
+      // villains: [],
+      villainToDelete: null,
       message: '',
+      showModal: false,
     };
+  },
+  components: {
+    Modal,
   },
   async created() {
     await this.loadVillains();
   },
   methods: {
+    ...mapActions(['getVillainsAction', 'deleteVillainAction']),
+    askToDelete(villain) {
+      this.villainToDelete = villain;
+      this.showModal = true;
+    },
+    closeModal() {
+      this.showModal = false;
+    },
+    async deleteVillain() {
+      this.closeModal();
+      if (this.villainToDelete) {
+        this.deleteVillainAction(this.villainToDelete);
+      }
+      await this.loadVillains();
+    },
     async loadVillains() {
-      this.villains = [];
+      // this.villains = [];
       this.message = 'getting the villains, please be patient';
-
-      this.villains = await dataService.getVillains();
-
+      // this.villains = await dataService.getVillains();
+      await this.getVillainsAction();
       this.message = '';
+    },
+  },
+  computed: {
+    ...mapGetters({ villains: 'villains' }),
+    modalMessage() {
+      const name =
+        this.villainToDelete && this.villainToDelete.fullName
+          ? this.villainToDelete.fullName
+          : '';
+      return `Would you like to delete ${name} ?`;
     },
   },
 };

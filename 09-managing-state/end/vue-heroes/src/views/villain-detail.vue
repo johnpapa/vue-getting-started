@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="section content-title-group">
-      <h2 class="title">Edit Villain</h2>
+      <h2 class="title">{{ title }}</h2>
       <div class="card">
         <header class="card-header">
-          <p class="card-header-title">{{ fullName }}</p>
+          <p class="card-header-title">{{ villain.fullName }}</p>
         </header>
         <div class="card-content">
           <div class="content">
@@ -53,7 +53,8 @@
 </template>
 
 <script>
-import { dataService } from '../shared';
+// import { dataService } from '../shared';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'VillainDetail',
@@ -68,22 +69,41 @@ export default {
       villain: {},
     };
   },
-  async created() {
-    this.villain = await dataService.getVillain(this.id);
+  created() {
+    // this.villain = await dataService.getVillain(this.id);
+    this.villain = this.getVillainById(this.id);
+
+    if (this.isAddMode) {
+      this.villain = {
+        id: undefined,
+        firstName: '',
+        lastName: '',
+        description: '',
+      };
+    }
   },
   computed: {
-    fullName() {
-      return this.villain
-        ? `${this.villain.firstName} ${this.villain.lastName}`
-        : '';
+    ...mapGetters({
+      villains: 'villains',
+      getVillainById: 'getVillainById',
+    }),
+    isAddMode() {
+      return !this.villain || !this.villain.id;
+    },
+    title() {
+      return `${this.isAddMode ? 'Add' : 'Edit'} Villain`;
     },
   },
   methods: {
+    ...mapActions(['updateVillainAction', 'addVillainAction']),
     cancelVillain() {
       this.$router.push({ name: 'villains' });
     },
     async saveVillain() {
-      await dataService.updateVillain(this.villain);
+      // await dataService.updateVillain(this.villain);
+      this.villain.id
+        ? await this.updateVillainAction(this.villain)
+        : await this.addVillainAction(this.villain);
       this.$router.push({ name: 'villains' });
     },
   },

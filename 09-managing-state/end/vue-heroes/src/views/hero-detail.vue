@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="section content-title-group">
-      <h2 class="title">Edit Hero</h2>
+      <h2 class="title">{{ title }}</h2>
       <div class="card">
         <header class="card-header">
-          <p class="card-header-title">{{ fullName }}</p>
+          <p class="card-header-title">{{ hero.fullName }}</p>
         </header>
         <div class="card-content">
           <div class="content">
@@ -49,7 +49,8 @@
 </template>
 
 <script>
-import { dataService } from '../shared';
+// import { dataService } from '../shared';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'HeroDetail',
@@ -64,20 +65,38 @@ export default {
       hero: {},
     };
   },
-  async created() {
-    this.hero = await dataService.getHero(this.id);
+  created() {
+    // this.hero = await dataService.getHero(this.id);
+    this.hero = this.getHeroById(this.id);
+
+    if (this.isAddMode) {
+      this.hero = {
+        id: undefined,
+        firstName: '',
+        lastName: '',
+        description: '',
+      };
+    }
   },
   computed: {
-    fullName() {
-      return this.hero ? `${this.hero.firstName} ${this.hero.lastName}` : '';
+    ...mapGetters({ heroes: 'heroes', getHeroById: 'getHeroById' }),
+    isAddMode() {
+      return !this.hero || !this.hero.id;
+    },
+    title() {
+      return `${this.isAddMode ? 'Add' : 'Edit'} Hero`;
     },
   },
   methods: {
+    ...mapActions(['updateHeroAction', 'addHeroAction']),
     cancelHero() {
       this.$router.push({ name: 'heroes' });
     },
     async saveHero() {
-      await dataService.updateHero(this.hero);
+      // await dataService.updateHero(this.hero);
+      this.hero.id
+        ? await this.updateHeroAction(this.hero)
+        : await this.addHeroAction(this.hero);
       this.$router.push({ name: 'heroes' });
     },
   },
