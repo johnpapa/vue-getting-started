@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "backend": "json-server --watch db.json --routes routes.json --port 8888 --middlewares ./node_modules/json-server-reset",
+    "backend": "json-server --watch db.json --routes routes.json --port 8888 --delay 500 --middlewares ./node_modules/json-server-reset",
     "dev": "concurrently \"npm run backend\" \"npm run serve\""
   },
   "dependencies": {
@@ -18,7 +18,8 @@
     "core-js": "^2.6.5",
     "date-fns": "^1.30.1",
     "vue": "^2.6.10",
-    "vue-router": "^3.0.3"
+    "vue-router": "^3.0.3",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.7.0",
