@@ -13,6 +13,7 @@ const getHeroes = async function() {
 
     const heroes = data.map(h => {
       h.originDate = format(h.originDate, inputDateFormat);
+      h.fullName = `${h.firstName} ${h.lastName}`;
       return h;
     });
     return heroes;
@@ -44,10 +45,37 @@ const updateHero = async function(hero) {
   }
 };
 
+const addHero = async function(hero) {
+  try {
+    const response = await axios.post(`${API}/heroes`, hero);
+    const addedHero = parseItem(response, 201);
+    return addedHero;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
+const deleteHero = async function(hero) {
+  try {
+    const response = await axios.delete(`${API}/heroes/${hero.id}`);
+    parseItem(response, 200);
+    return hero.id;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
 const getVillains = async function() {
   try {
     const response = await axios.get(`${API}/villains`);
-    let villains = parseList(response);
+    let data = parseList(response);
+    const villains = data.map(v => {
+      v.originDate = format(v.originDate, inputDateFormat);
+      v.fullName = `${v.firstName} ${v.lastName}`;
+      return v;
+    });
     return villains;
   } catch (error) {
     console.error(error);
@@ -77,6 +105,28 @@ const updateVillain = async function(villain) {
   }
 };
 
+const addVillain = async function(villain) {
+  try {
+    const response = await axios.post(`${API}/villains`, villain);
+    const addedVillain = parseItem(response, 201);
+    return addedVillain;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
+const deleteVillain = async function(villain) {
+  try {
+    const response = await axios.delete(`${API}/villains/${villain.id}`);
+    parseItem(response, 200);
+    return villain.id;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
 const parseList = response => {
   if (response.status !== 200) throw Error(response.message);
   if (!response.data) return [];
@@ -100,7 +150,11 @@ export const dataService = {
   getHeroes,
   getHero,
   updateHero,
+  addHero,
+  deleteHero,
   getVillains,
   getVillain,
   updateVillain,
+  addVillain,
+  deleteVillain,
 };
