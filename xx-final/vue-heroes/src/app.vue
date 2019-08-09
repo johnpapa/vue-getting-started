@@ -16,13 +16,7 @@ import NavBar from '@/components/nav-bar';
 
 export default {
   name: 'App',
-  data() {
-    return {};
-  },
-  components: {
-    HeaderBar,
-    NavBar,
-  },
+  components: { HeaderBar, NavBar },
 };
 </script>
 

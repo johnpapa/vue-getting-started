@@ -114,6 +114,19 @@ header {
       color: $link;
     }
   }
+  h3 {
+    border-left: 16px solid $primary;
+    border-bottom: 2px solid $primary;
+    padding-left: 8px;
+    padding-right: 16px;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #555;
+    letter-spacing: 0px;
+    &:hover {
+      color: $link;
+    }
+  }
   button.button {
     border: 0;
     color: #999;
@@ -192,4 +205,27 @@ input.invalid,
 textarea.invalid,
 select.invalid {
   border-left: 10px red solid !important;
+}
+
+.list-item {
+  color: #000;
+  &:hover {
+    color: $accent-color;
+  }
+  &.is-active {
+    background-color: $accent-color;
+    border-radius: 0;
+    border-top: #fff solid 1px;
+    border-bottom: #fff solid 1px;
+    color: #fff;
+  }
+}
+
+label.input {
+  background-color: #e5e5e5;
+  border: 1px solid #ccc;
+}
+
+p.comment {
+  margin: 8px;
 }

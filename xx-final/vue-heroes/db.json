@@ -1,56 +1,92 @@
 {
   "heroes": [
     {
-      "id": "HeroAslaug",
-      "name": "Aslaug",
-      "description": "warrior queen"
+      "id": 10,
+      "firstName": "Ella",
+      "lastName": "Papa",
+      "capeCounter": 1,
+      "originDate": "1996-06-06",
+      "description": "fashionista"
     },
     {
-      "id": "HeroBjorn",
-      "name": "Bjorn Ironside",
-      "description": "king of 9th century Sweden"
+      "id": 20,
+      "firstName": "Madelyn",
+      "lastName": "Papa",
+      "capeCounter": 3,
+      "originDate": "08/01/1998",
+      "description": "the cat whisperer"
     },
     {
-      "id": "HeroIvar",
-      "name": "Ivar the Boneless",
-      "description": "commander of the Great Heathen Army"
+      "id": 30,
+      "firstName": "Haley",
+      "lastName": "Papa",
+      "capeCounter": 2,
+      "originDate": "09/01/1999",
+      "description": "pen wielder"
     },
     {
-      "id": "HeroLagertha",
-      "name": "Lagertha the Shieldmaiden",
-      "description": "aka Hlaðgerðr"
-    },
-    {
-      "id": "HeroRagnar",
-      "name": "Ragnar Lothbrok",
-      "description": "aka Ragnar Sigurdsson"
-    },
-    {
-      "id": "HeroThora",
-      "name": "Thora Town-hart",
-      "description": "daughter of Earl Herrauðr of Götaland"
+      "id": 40,
+      "firstName": "Landon",
+      "lastName": "Papa",
+      "capeCounter": 0,
+      "originDate": "10/01/2000",
+      "description": "arc trooper"
     }
   ],
   "villains": [
     {
-      "id": "VillainMadelyn",
-      "name": "Madelyn",
-      "description": "the cat whisperer"
+      "id": 10,
+      "firstName": "Malcolm",
+      "lastName": "Reynolds",
+      "description": "I don't believe there is a power in the verse that can stop Kaylee from being cheerful."
     },
     {
-      "id": "VillainHaley",
-      "name": "Haley",
-      "description": "pen wielder"
+      "id": 20,
+      "firstName": "Kaylee",
+      "lastName": "Frye",
+      "description": "No power in the 'verse can stop me."
     },
     {
-      "id": "VillainElla",
-      "name": "Ella",
-      "description": "fashionista"
+      "id": 30,
+      "firstName": "Hoban",
+      "lastName": "Washburne",
+      "description": "I don't mean to alarm anybody, but I think we're being followed."
     },
     {
-      "id": "VillainLandon",
-      "name": "Landon",
-      "description": "Mandalorian bounty hunter"
+      "id": 40,
+      "firstName": "Zoë",
+      "lastName": "Washburne",
+      "description": "First rule of battle, little one ... don't ever let them know where you are."
+    },
+    {
+      "id": 50,
+      "firstName": "Inara",
+      "lastName": "Serra",
+      "description": "It wasn't entirely a disaster"
+    },
+    {
+      "id": 60,
+      "firstName": "Simon",
+      "lastName": "Tam",
+      "description": "This must be what going mad feels like."
+    },
+    {
+      "id": 70,
+      "firstName": "Shepherd",
+      "lastName": "Book",
+      "description": "Oh, I got heathens aplenty right here."
+    },
+    {
+      "id": 80,
+      "firstName": "River",
+      "lastName": "Tam",
+      "description": "Call me if anyone interesting shows up"
+    },
+    {
+      "id": 90,
+      "firstName": "Jayne",
+      "lastName": "Cobb",
+      "description": "Ten percent of nothin' is ... let me do the math here ... nothin' into nothin' ... carry the nothin'"
     }
   ]
 }
