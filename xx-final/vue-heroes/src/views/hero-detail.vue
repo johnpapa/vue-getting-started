@@ -49,7 +49,6 @@
 </template>
 
 <script>
-// import { dataService } from '../shared';
 import { mapActions, mapGetters } from 'vuex';
 
 export default {
@@ -74,7 +73,6 @@ export default {
         description: '',
       };
     } else {
-      // this.hero = await dataService.getHero(this.id);
       this.hero = this.getHeroById(this.id);
     }
   },
@@ -93,7 +91,6 @@ export default {
       this.$router.push({ name: 'heroes' });
     },
     async saveHero() {
-      // await dataService.updateHero(this.hero);
       this.hero.id
         ? await this.updateHeroAction(this.hero)
         : await this.addHeroAction(this.hero);

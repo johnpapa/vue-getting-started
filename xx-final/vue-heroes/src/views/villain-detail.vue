@@ -53,7 +53,6 @@
 </template>
 
 <script>
-// import { dataService } from '../shared';
 import { mapActions, mapGetters } from 'vuex';
 
 export default {
@@ -78,7 +77,6 @@ export default {
         description: '',
       };
     } else {
-      // this.villain = await dataService.getVillain(this.id);
       this.villain = this.getVillainById(this.id);
     }
   },
@@ -100,7 +98,6 @@ export default {
       this.$router.push({ name: 'villains' });
     },
     async saveVillain() {
-      // await dataService.updateVillain(this.villain);
       this.villain.id
         ? await this.updateVillainAction(this.villain)
         : await this.addVillainAction(this.villain);

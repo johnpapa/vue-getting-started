@@ -41,14 +41,6 @@
                     <i class="fas fa-check"></i>
                     <span>Select</span>
                   </router-link>
-                  <!-- <router-link
-                    tag="button"
-                    class="link card-footer-item"
-                    :to="{ path: `villains/${villain.id}` }"
-                  >
-                    <i class="fas fa-check"></i>
-                    <span>Select</span>
-                  </router-link> -->
                 </footer>
               </div>
             </li>
@@ -70,13 +62,11 @@
 <script>
 import { mapActions, mapGetters } from 'vuex';
 import Modal from '@/components/modal';
-// import { dataService } from '../shared';
 
 export default {
   name: 'Villains',
   data() {
     return {
-      // villains: [],
       villainToDelete: null,
       message: '',
       showModal: false,
@@ -105,9 +95,7 @@ export default {
       await this.loadVillains();
     },
     async loadVillains() {
-      // this.villains = [];
       this.message = 'getting the villains, please be patient';
-      // this.villains = await dataService.getVillains();
       await this.getVillainsAction();
       this.message = '';
     },

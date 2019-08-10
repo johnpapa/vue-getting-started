@@ -62,13 +62,11 @@
 <script>
 import { mapActions, mapGetters } from 'vuex';
 import Modal from '@/components/modal';
-// import { dataService } from '../shared';
 
 export default {
   name: 'Heroes',
   data() {
     return {
-      // heroes: [],
       heroToDelete: null,
       message: '',
       showModal: false,
@@ -97,9 +95,7 @@ export default {
       await this.loadHeroes();
     },
     async loadHeroes() {
-      // this.heroes = [];
       this.message = 'getting the heroes, please be patient';
-      // this.heroes = await dataService.getHeroes();
       await this.getHeroesAction();
       this.message = '';
     },
