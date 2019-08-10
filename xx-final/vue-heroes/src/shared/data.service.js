@@ -27,6 +27,7 @@ const getHero = async function(id) {
   try {
     const response = await axios.get(`${API}/heroes/${id}`);
     let hero = parseItem(response, 200);
+    hero.fullName = `${hero.firstName} ${hero.lastName}`;
     return hero;
   } catch (error) {
     console.error(error);
@@ -87,6 +88,7 @@ const getVillain = async function(id) {
   try {
     const response = await axios.get(`${API}/villains/${id}`);
     let villain = parseItem(response, 200);
+    villain.fullName = `${villain.firstName} ${villain.lastName}`;
     return villain;
   } catch (error) {
     console.error(error);

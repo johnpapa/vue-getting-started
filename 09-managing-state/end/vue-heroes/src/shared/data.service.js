@@ -5,7 +5,7 @@ import { inputDateFormat } from './constants';
 
 import { API } from './config';
 
-const getHeroes = async function() {
+const getHeroes = async function () {
   try {
     const response = await axios.get(`${API}/heroes`);
 
@@ -23,10 +23,11 @@ const getHeroes = async function() {
   }
 };
 
-const getHero = async function(id) {
+const getHero = async function (id) {
   try {
     const response = await axios.get(`${API}/heroes/${id}`);
     let hero = parseItem(response, 200);
+    hero.fullName = `${hero.firstName} ${hero.lastName}`;
     return hero;
   } catch (error) {
     console.error(error);
@@ -34,7 +35,7 @@ const getHero = async function(id) {
   }
 };
 
-const updateHero = async function(hero) {
+const updateHero = async function (hero) {
   try {
     const response = await axios.put(`${API}/heroes/${hero.id}`, hero);
     const updatedHero = parseItem(response, 200);
@@ -45,7 +46,7 @@ const updateHero = async function(hero) {
   }
 };
 
-const addHero = async function(hero) {
+const addHero = async function (hero) {
   try {
     const response = await axios.post(`${API}/heroes`, hero);
     const addedHero = parseItem(response, 201);
@@ -56,7 +57,7 @@ const addHero = async function(hero) {
   }
 };
 
-const deleteHero = async function(hero) {
+const deleteHero = async function (hero) {
   try {
     const response = await axios.delete(`${API}/heroes/${hero.id}`);
     parseItem(response, 200);
@@ -67,7 +68,7 @@ const deleteHero = async function(hero) {
   }
 };
 
-const getVillains = async function() {
+const getVillains = async function () {
   try {
     const response = await axios.get(`${API}/villains`);
     let data = parseList(response);
@@ -83,10 +84,11 @@ const getVillains = async function() {
   }
 };
 
-const getVillain = async function(id) {
+const getVillain = async function (id) {
   try {
     const response = await axios.get(`${API}/villains/${id}`);
     let villain = parseItem(response, 200);
+    villain.fullName = `${villain.firstName} ${villain.lastName}`;
     return villain;
   } catch (error) {
     console.error(error);
@@ -94,7 +96,7 @@ const getVillain = async function(id) {
   }
 };
 
-const updateVillain = async function(villain) {
+const updateVillain = async function (villain) {
   try {
     const response = await axios.put(`${API}/villains/${villain.id}`, villain);
     const updatedVillain = parseItem(response, 200);
@@ -105,7 +107,7 @@ const updateVillain = async function(villain) {
   }
 };
 
-const addVillain = async function(villain) {
+const addVillain = async function (villain) {
   try {
     const response = await axios.post(`${API}/villains`, villain);
     const addedVillain = parseItem(response, 201);
@@ -116,7 +118,7 @@ const addVillain = async function(villain) {
   }
 };
 
-const deleteVillain = async function(villain) {
+const deleteVillain = async function (villain) {
   try {
     const response = await axios.delete(`${API}/villains/${villain.id}`);
     parseItem(response, 200);
