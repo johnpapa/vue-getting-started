@@ -1,0 +1,231 @@
+html > body {
+  margin: 0 !important;
+}
+
+.main-section {
+  padding: 1rem 1rem;
+}
+
+.notification pre {
+  background-color: inherit;
+  color: white;
+  font-size: 16px;
+  line-height: normal;
+}
+
+div.color-line {
+  width: 160px;
+  height: 8px;
+  border: 1px #dbdbdb solid;
+  margin: 8px 0;
+}
+
+.menu-list .active-link,
+.menu-list .router-link-active {
+  color: #fff;
+  background-color: $link;
+}
+
+.not-found {
+  i {
+    font-size: 20px;
+    margin-right: 8px;
+  }
+  .title {
+    letter-spacing: 0px;
+    font-weight: normal;
+    font-size: 24px;
+    text-transform: none;
+  }
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.125;
+  word-break: break-word;
+}
+.sub-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1;
+  word-break: break-word;
+}
+
+header {
+  font-weight: bold;
+  font-family: Arial;
+  span {
+    letter-spacing: 0px;
+    &.tour {
+      color: #fff;
+    }
+    &.of {
+      color: #ccc;
+    }
+    &.heroes {
+      color: $primary-light;
+    }
+  }
+  .navbar-item.nav-home {
+    border: 3px solid transparent;
+    border-radius: 0%;
+    &:hover {
+      border-right: 3px solid $primary-light;
+      border-left: 3px solid $primary-light;
+    }
+  }
+  .fab {
+    font-size: 24px;
+    &.js-logo {
+      color: $primary-light;
+    }
+  }
+  .buttons {
+    i.fab {
+      color: #fff;
+      margin-left: 20px;
+      margin-right: 10px;
+      &:hover {
+        color: $primary-light;
+      }
+    }
+  }
+}
+
+.edit-detail {
+  .input[readonly] {
+    background-color: $shade-light;
+  }
+}
+
+.content-title-group {
+  margin-bottom: 16px;
+  h2 {
+    border-left: 16px solid $primary;
+    border-bottom: 2px solid $primary;
+    padding-left: 8px;
+    padding-right: 16px;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #555;
+    letter-spacing: 0px;
+    &:hover {
+      color: $link;
+    }
+  }
+  h3 {
+    border-left: 16px solid $primary;
+    border-bottom: 2px solid $primary;
+    padding-left: 8px;
+    padding-right: 16px;
+    display: inline-block;
+    text-transform: uppercase;
+    color: #555;
+    letter-spacing: 0px;
+    &:hover {
+      color: $link;
+    }
+  }
+  button.button {
+    border: 0;
+    color: #999;
+    &:hover {
+      color: $link;
+    }
+  }
+}
+ul.list {
+  box-shadow: none;
+}
+div.card-content {
+  background-color: $shade-light;
+  .name {
+    font-size: 28px;
+    color: #000;
+  }
+  .description {
+    font-size: 20px;
+    color: #999;
+  }
+  background-color: $shade-light;
+}
+.card {
+  margin-bottom: 2em;
+}
+
+label.label {
+  font-weight: normal;
+}
+
+p.card-header-title {
+  background-color: $primary;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #fff;
+  display: block;
+  padding-left: 24px;
+}
+.card-footer button {
+  font-size: 16px;
+  i {
+    margin-right: 10px;
+  }
+  color: #888;
+  &:hover {
+    color: $link;
+  }
+}
+
+.modal-card-foot button {
+  display: inline-block;
+  width: 80px;
+}
+
+.modal-card-head,
+.modal-card-body {
+  text-align: center;
+}
+
+.field {
+  margin-bottom: 0.75rem;
+}
+
+.navbar-burger {
+  margin-left: auto;
+}
+
+button.link {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+input.invalid,
+textarea.invalid,
+select.invalid {
+  border-left: 10px red solid !important;
+}
+
+.list-item {
+  color: #000;
+  &:hover {
+    color: $accent-color;
+  }
+  &.is-active {
+    background-color: $accent-color;
+    border-radius: 0;
+    border-top: #fff solid 1px;
+    border-bottom: #fff solid 1px;
+    color: #fff;
+  }
+}
+
+label.input {
+  background-color: #e5e5e5;
+  border: 1px solid #ccc;
+}
+
+p.comment {
+  margin: 8px;
+}
