@@ -68,15 +68,15 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
 import Modal from '@/components/modal';
-// import { dataService } from '../shared';
+import { dataService } from '../shared';
+// import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'Villains',
   data() {
     return {
-      // villains: [],
+      villains: [], // remove
       villainToDelete: null,
       message: '',
       showModal: false,
@@ -89,7 +89,7 @@ export default {
     await this.loadVillains();
   },
   methods: {
-    ...mapActions(['getVillainsAction', 'deleteVillainAction']),
+    // ...mapActions(['getVillainsAction', 'deleteVillainAction']),
     askToDelete(villain) {
       this.villainToDelete = villain;
       this.showModal = true;
@@ -100,20 +100,22 @@ export default {
     async deleteVillain() {
       this.closeModal();
       if (this.villainToDelete) {
-        this.deleteVillainAction(this.villainToDelete);
+        dataService.deleteVillain(this.villainToDelete);
+        // this.deleteVillainAction(this.villainToDelete);
       }
       await this.loadVillains();
     },
     async loadVillains() {
-      // this.villains = [];
+      this.villains = []; // remove
       this.message = 'getting the villains, please be patient';
-      // this.villains = await dataService.getVillains();
-      await this.getVillainsAction();
+      this.villains = await dataService.getVillains(); // remove
+      await dataService.getVillains();
+      // await this.getVillainsAction();
       this.message = '';
     },
   },
   computed: {
-    ...mapGetters({ villains: 'villains' }),
+    // ...mapGetters({ villains: 'villains' }),
     modalMessage() {
       const name =
         this.villainToDelete && this.villainToDelete.fullName
