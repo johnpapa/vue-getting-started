@@ -81,10 +81,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      villains: 'villains',
-      getVillainById: 'getVillainById',
-    }),
+    ...mapGetters(['villains', 'getVillainById']),
     isAddMode() {
       return !this.id;
     },

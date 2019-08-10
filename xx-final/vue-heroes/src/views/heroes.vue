@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 import Modal from '@/components/modal';
 
 export default {
@@ -101,7 +101,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters({ heroes: 'heroes' }),
+    ...mapState(['heroes']),
     modalMessage() {
       const name =
         this.heroToDelete && this.heroToDelete.fullName
