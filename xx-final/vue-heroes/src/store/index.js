@@ -13,8 +13,6 @@ import {
   UPDATE_VILLAIN,
 } from './mutation-types';
 
-// const captains = console;
-
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -65,24 +63,10 @@ export default new Vuex.Store({
     async getHeroesAction({ commit }) {
       const heroes = await dataService.getHeroes();
       commit(GET_HEROES, heroes);
-      // return axios
-      //   .get(`${API}/heroes`)
-      //   .then(response => {
-      //     const heroes = parseList(response);
-      //     commit(GET_HEROES, heroes);
-      //     return heroes;
-      //   })
-      //   .catch(captains.error);
     },
     async updateHeroAction({ commit }, hero) {
       const updatedHero = await dataService.updateHero(hero);
       commit(UPDATE_HERO, updatedHero);
-
-      // return axios.put(`${API}/heroes/${hero.id}`, hero).then(response => {
-      //   const updatedHero = parseItem(response, 200);
-      //   commit(UPDATE_HERO, updatedHero);
-      //   return updatedHero;
-      // });
     },
     async addVillainAction({ commit }, villain) {
       const addedVillain = await dataService.addVillain(villain);
