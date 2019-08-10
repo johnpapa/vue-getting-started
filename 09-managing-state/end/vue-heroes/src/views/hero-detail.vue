@@ -75,6 +75,7 @@ export default {
       };
     } else {
       // this.hero = await dataService.getHero(this.id);
+      // this.hero = { ...this.getHeroById(this.id) };
       this.hero = this.getHeroById(this.id);
     }
   },
