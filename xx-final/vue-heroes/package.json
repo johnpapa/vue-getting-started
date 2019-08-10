@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "backend": "json-server --watch db.json --routes routes.json --port 8888 --delay 250 --middlewares ./node_modules/json-server-reset",
+    "backend": "json-server --watch db.json --routes routes.json --port 8888 --delay 100 --middlewares ./node_modules/json-server-reset",
     "dev": "concurrently \"npm run backend\" \"npm run serve\""
   },
   "dependencies": {
