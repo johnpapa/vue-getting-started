@@ -80,7 +80,11 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({ heroes: 'heroes', getHeroById: 'getHeroById' }),
+    // 1. mapping Getters
+    // ...mapGetters({ heroes: 'heroes', getHeroById: 'getHeroById' }),
+    // 2. shortcut for mapping Getters
+    ...mapGetters(['heroes', 'getHeroById']),
+    // (mapGetters) map `this.heroes` to `this.$store.getters.heroes`
     isAddMode() {
       return !this.id;
     },
