@@ -70,9 +70,6 @@ export default {
     };
   },
   created() {
-    // this.villain = await dataService.getVillain(this.id);
-    this.villain = this.getVillainById(this.id);
-
     if (this.isAddMode) {
       this.villain = {
         id: undefined,
@@ -80,6 +77,9 @@ export default {
         lastName: '',
         description: '',
       };
+    } else {
+      // this.villain = await dataService.getVillain(this.id);
+      this.villain = this.getVillainById(this.id);
     }
   },
   computed: {
@@ -88,7 +88,7 @@ export default {
       getVillainById: 'getVillainById',
     }),
     isAddMode() {
-      return !this.villain || !this.villain.id;
+      return !this.id;
     },
     title() {
       return `${this.isAddMode ? 'Add' : 'Edit'} Villain`;

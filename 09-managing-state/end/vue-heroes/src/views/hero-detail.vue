@@ -66,9 +66,6 @@ export default {
     };
   },
   created() {
-    // this.hero = await dataService.getHero(this.id);
-    this.hero = this.getHeroById(this.id);
-
     if (this.isAddMode) {
       this.hero = {
         id: undefined,
@@ -76,12 +73,15 @@ export default {
         lastName: '',
         description: '',
       };
+    } else {
+      // this.hero = await dataService.getHero(this.id);
+      this.hero = this.getHeroById(this.id);
     }
   },
   computed: {
     ...mapGetters({ heroes: 'heroes', getHeroById: 'getHeroById' }),
     isAddMode() {
-      return !this.hero || !this.hero.id;
+      return !this.id;
     },
     title() {
       return `${this.isAddMode ? 'Add' : 'Edit'} Hero`;

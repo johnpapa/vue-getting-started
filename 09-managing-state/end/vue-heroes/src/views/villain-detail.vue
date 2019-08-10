@@ -53,8 +53,7 @@
 </template>
 
 <script>
-// import { dataService } from '../shared';
-import { mapActions, mapGetters } from 'vuex';
+import { dataService } from '../shared';
 
 export default {
   name: 'VillainDetail',
@@ -69,10 +68,7 @@ export default {
       villain: {},
     };
   },
-  created() {
-    // this.villain = await dataService.getVillain(this.id);
-    this.villain = this.getVillainById(this.id);
-
+  async created() {
     if (this.isAddMode) {
       this.villain = {
         id: undefined,
@@ -80,30 +76,26 @@ export default {
         lastName: '',
         description: '',
       };
+    } else {
+      this.villain = await dataService.getVillain(this.id);
     }
   },
   computed: {
-    ...mapGetters({
-      villains: 'villains',
-      getVillainById: 'getVillainById',
-    }),
     isAddMode() {
-      return !this.villain || !this.villain.id;
+      return !this.id;
     },
     title() {
       return `${this.isAddMode ? 'Add' : 'Edit'} Villain`;
     },
   },
   methods: {
-    ...mapActions(['updateVillainAction', 'addVillainAction']),
     cancelVillain() {
       this.$router.push({ name: 'villains' });
     },
     async saveVillain() {
-      // await dataService.updateVillain(this.villain);
       this.villain.id
-        ? await this.updateVillainAction(this.villain)
-        : await this.addVillainAction(this.villain);
+        ? await dataService.updateVillain(this.villain)
+        : await dataService.addVillain(this.villain);
       this.$router.push({ name: 'villains' });
     },
   },
