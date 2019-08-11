@@ -11,9 +11,9 @@ import {
 
 Vue.use(Vuex);
 
-const state = {
+const state = () => ({
   heroes: [],
-};
+});
 
 const mutations = {
   [ADD_HERO](state, hero) {
