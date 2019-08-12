@@ -93,4 +93,10 @@ const getters = {
   getVillainById: state => id => state.villains.find(v => v.id === id),
 };
 
-export default new Vuex.Store({ state, mutations, actions, getters });
+export default new Vuex.Store({
+  strict: process.env.NODE_ENV !== 'production',
+  state,
+  mutations,
+  actions,
+  getters,
+});
