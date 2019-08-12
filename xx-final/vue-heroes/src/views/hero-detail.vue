@@ -73,7 +73,7 @@ export default {
         description: '',
       };
     } else {
-      this.hero = this.getHeroById(this.id);
+      this.hero = { ...this.getHeroById(this.id) };
     }
   },
   computed: {

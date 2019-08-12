@@ -77,7 +77,7 @@ export default {
         description: '',
       };
     } else {
-      this.villain = this.getVillainById(this.id);
+      this.villain = { ...this.getVillainById(this.id) };
     }
   },
   computed: {

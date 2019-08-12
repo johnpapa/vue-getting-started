@@ -75,16 +75,15 @@ export default {
       };
     } else {
       // this.hero = await dataService.getHero(this.id);
-      // this.hero = { ...this.getHeroById(this.id) };
-      this.hero = this.getHeroById(this.id);
+      this.hero = { ...this.getHeroById(this.id) };
     }
   },
   computed: {
     // 1. mapping Getters
-    // ...mapGetters({ heroes: 'heroes', getHeroById: 'getHeroById' }),
+    // ...mapGetters({ getHeroById: 'getHeroById' }),
     // 2. shortcut for mapping Getters
-    ...mapGetters(['heroes', 'getHeroById']),
-    // (mapGetters) map `this.heroes` to `this.$store.getters.heroes`
+    ...mapGetters(['getHeroById']),
+    // (mapGetters) map `this.getHeroById` to `this.$store.getters.getHeroById`
     isAddMode() {
       return !this.id;
     },
