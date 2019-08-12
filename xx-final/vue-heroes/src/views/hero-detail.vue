@@ -77,7 +77,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['heroes', 'getHeroById']),
+    ...mapGetters(['getHeroById']),
     isAddMode() {
       return !this.id;
     },
