@@ -51,6 +51,7 @@
 <script>
 // import { dataService } from '../shared';
 import { mapActions, mapGetters } from 'vuex';
+import { cloneDeep } from 'lodash';
 
 export default {
   name: 'HeroDetail',
@@ -75,7 +76,8 @@ export default {
       };
     } else {
       // this.hero = await dataService.getHero(this.id);
-      this.hero = { ...this.getHeroById(this.id) };
+      // this.hero = { ...this.getHeroById(this.id) };
+      this.hero = cloneDeep(this.getHeroById(this.id));
     }
   },
   computed: {

@@ -17,7 +17,7 @@ const state = () => ({
 
 const mutations = {
   [ADD_HERO](state, hero) {
-    state.heroes.unshift(hero); // mutable addition
+    state.heroes.push(hero); // mutable addition
   },
   [UPDATE_HERO](state, hero) {
     const index = state.heroes.findIndex(h => h.id === hero.id);
