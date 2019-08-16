@@ -50,7 +50,6 @@
 
 <script>
 import { dataService } from '../shared';
-// import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'HeroDetail',
@@ -65,7 +64,6 @@ export default {
       hero: {},
     };
   },
-  // created() {
   async created() {
     if (this.isAddMode) {
       this.hero = {
@@ -75,12 +73,10 @@ export default {
         description: '',
       };
     } else {
-      // this.hero = this.getHeroById(this.id);
       this.hero = await dataService.getHero(this.id);
     }
   },
   computed: {
-    // ...mapGetters({ heroes: 'heroes', getHeroById: 'getHeroById' }),
     isAddMode() {
       return !this.id;
     },
@@ -89,7 +85,6 @@ export default {
     },
   },
   methods: {
-    // ...mapActions(['updateHeroAction', 'addHeroAction']),
     cancelHero() {
       this.$router.push({ name: 'heroes' });
     },
@@ -97,9 +92,6 @@ export default {
       this.hero.id
         ? await dataService.updateHero(this.hero)
         : await dataService.addHero(this.hero);
-      // this.hero.id
-      //   ? await this.updateHeroAction(this.hero)
-      //   : await this.addHeroAction(this.hero);
       this.$router.push({ name: 'heroes' });
     },
   },
