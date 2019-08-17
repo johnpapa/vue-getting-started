@@ -94,7 +94,7 @@ export default {
     async deleteHero() {
       this.closeModal();
       if (this.heroToDelete) {
-        this.deleteHeroAction(this.heroToDelete);
+        await this.deleteHeroAction(this.heroToDelete);
       }
       await this.loadHeroes();
     },
