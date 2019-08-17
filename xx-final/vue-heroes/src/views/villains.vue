@@ -90,7 +90,7 @@ export default {
     async deleteVillain() {
       this.closeModal();
       if (this.villainToDelete) {
-        this.deleteVillainAction(this.villainToDelete);
+        await this.deleteVillainAction(this.villainToDelete);
       }
       await this.loadVillains();
     },
