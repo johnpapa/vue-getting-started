@@ -96,6 +96,10 @@ export default {
       if (this.heroToDelete) {
         await this.deleteHeroAction(this.heroToDelete);
       }
+      /** The loadHeroes is not needed,
+       *  but it's nice to query the database
+       * in case any other changes were made by other users
+       */
       await this.loadHeroes();
     },
     async loadHeroes() {
