@@ -6,9 +6,11 @@ by [John Papa](http://twitter.com/john_papa)
 
 ## Projects
 
-This repository contains several projects. Each project represents a step in the learning experience.
+This repository contains several projects. Each project represents a step in the learning experience. Two proejects of note are:
 
 - `02-getting-started/end/vue-heroes` - This is the starting point for the app
+- `xx-final/vue-heroes` - This is the ending point for the app
+
 
 ## Quick Start
 
