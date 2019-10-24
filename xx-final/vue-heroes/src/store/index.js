@@ -32,8 +32,8 @@ const mutations = {
   [GET_HEROES](state, heroes) {
     state.heroes = heroes;
   },
-  [DELETE_HERO](state, hero) {
-    state.heroes = [...state.heroes.filter(p => p.id !== hero.id)];
+  [DELETE_HERO](state, heroId) {
+    state.heroes = [...state.heroes.filter(p => p.id !== heroId)];
   },
   [ADD_VILLAIN](state, villain) {
     state.villains.unshift(villain); // mutable addition
@@ -46,8 +46,8 @@ const mutations = {
   [GET_VILLAINS](state, villains) {
     state.villains = villains;
   },
-  [DELETE_VILLAIN](state, villain) {
-    state.villains = [...state.villains.filter(p => p.id !== villain.id)];
+  [DELETE_VILLAIN](state, villainId) {
+    state.villains = [...state.villains.filter(p => p.id !== villainId)];
   },
 };
 
