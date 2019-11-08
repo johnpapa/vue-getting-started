@@ -39,6 +39,31 @@ This repository contains several projects. Each project represents a step in the
    npm run serve
    ```
 
+## Quick Start - `npm install` for each module
+
+### Git bash commands to install npm modules at the beginning of each example
+
+```bash
+export PARENT_DIR
+PARENT_DIR=C:/code/training/vue-getting-started # edit this to match your local git directory
+
+cd $PARENT_DIR/03-data-and-events/begin/vue-heroes | npm install
+cd $PARENT_DIR/04-lists-and-conditionals/begin/vue-heroes | npm install
+cd $PARENT_DIR/05-interacting-within-a-component/begin/vue-heroes | npm install
+cd $PARENT_DIR/06-component-communication/begin/vue-heroes | npm install
+cd $PARENT_DIR/07-accessing-data/begin/vue-heroes | npm install
+cd $PARENT_DIR/08-routing/begin/vue-heroes | npm install
+cd $PARENT_DIR/09-managing-state/begin/vue-heroes | npm install
+```
+
+### Git bash commands to install npm modules at the end of each example
+
+```bash
+cd $PARENT_DIR/02-getting-started/end/vue-heroes | npm install
+# copy begin commands and replace `begin` with `end` here 
+cd $PARENT_DIR/xx-final/vue-heroes | npm install
+```
+
 ## Problems or Suggestions
 
 [Open an issue here](/issues)
