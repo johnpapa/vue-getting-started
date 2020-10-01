@@ -122,7 +122,7 @@ export default {
           this.capeMessage = 'One is all I need';
           break;
         case 2:
-          this.capeMessage = 'Alway have a spare';
+          this.capeMessage = 'Always have a spare';
           break;
         default:
           this.capeMessage = 'You can never have enough capes';
